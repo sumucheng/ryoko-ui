@@ -3,8 +3,7 @@ module.exports = {
     description: '',
     themeConfig: {
         nav: [
-            { text: '主页', link: '/' },
-            { text: '文档', link: '/guide/' },
+            { text: '主页', link: '/' }
         ],
         sidebar: [
             {
@@ -15,6 +14,7 @@ module.exports = {
                 title: '组件',
                 children: ['/components/button']
             },
-        ]
+        ],
+        repo: 'https://github.com/sumucheng/ryoko-ui'
     }
 }
