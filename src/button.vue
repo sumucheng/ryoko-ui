@@ -24,7 +24,7 @@ export default {
       type: String,
       default: "middle",
       validator(value) {
-        return value === "large" || value === "midlle" || value === "small";
+        return value === "large" || value === "middle" || value === "small";
       }
     },
     type: {
