@@ -10,32 +10,47 @@
         <li>加载状态时，加载指示器替代按钮文字，不影响按钮的尺寸与位置。</li>
       </ul>
     </div>
-    <div class="basicButtons item">
+    <div class="item">
       <div class="title">基础按钮</div>
       <div class="text">主要按钮承载的是用户优先级最高的按钮，给用户明确的操作指引，帮助用户完成操作。</div>
-      <div class="box">
-        <r-button type="default">朴素按钮</r-button>
-        <r-button type="primary">主要按钮</r-button>
-        <r-button type="danger">危险按钮</r-button>
+      <div class="container">
+        <div class="box">
+          <r-button>朴素按钮</r-button>
+          <r-button type="primary">主要按钮</r-button>
+          <r-button type="danger">危险按钮</r-button>
+        </div>
+        <pre class="code">
+            <code>{{code.basic}}</code>
+        </pre>
       </div>
     </div>
-    <div class="basicButtons item">
+    <div class="item">
       <div class="title">禁用状态</div>
       <div class="text">按钮不可用状态。</div>
-      <div class="box">
-        <r-button type="default" disabled>朴素按钮</r-button>
-        <r-button type="primary" disabled>主要按钮</r-button>
-        <r-button type="danger" disabled>危险按钮</r-button>
+      <div class="container">
+        <div class="box">
+          <r-button type="default" disabled>朴素按钮</r-button>
+          <r-button type="primary" disabled>主要按钮</r-button>
+          <r-button type="danger" disabled>危险按钮</r-button>
+        </div>
+        <pre class="code">
+            <code>{{code.noUse}}</code>
+        </pre>
       </div>
     </div>
 
-    <div class="basicButtons item">
+    <div class="item">
       <div class="title">不同尺寸</div>
       <div class="text">Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</div>
-      <div class="box">
-        <r-button size="large">大型按钮</r-button>
-        <r-button size="middle">默认按钮</r-button>
-        <r-button size="small">小型按钮</r-button>
+      <div class="container">
+        <div class="box">
+          <r-button size="large">大型按钮</r-button>
+          <r-button size="middle">默认按钮</r-button>
+          <r-button size="small">小型按钮</r-button>
+        </div>
+        <pre class="code">
+            <code>{{code.size}}</code>
+        </pre>
       </div>
     </div>
   </div>
@@ -46,6 +61,21 @@ import Button from "../../../src/button";
 export default {
   components: {
     "r-button": Button
+  },
+  data() {
+    return {
+      code: {
+        basic: `<r-button>朴素按钮</r-button>
+      <r-button type="primary">主要按钮</r-button>
+      <r-button type="danger">危险按钮</r-button>`,
+        noUse: `<r-button type="default" disabled>朴素按钮</r-button>
+        <r-button type="primary" disabled>主要按钮</r-button>
+        <r-button type="danger" disabled>危险按钮</r-button>`,
+        size: `<r-button size="large">大型按钮</r-button>
+        <r-button size="middle">默认按钮</r-button>
+        <r-button size="small">小型按钮</r-button>`
+      }
+    };
   }
 };
 </script>
@@ -59,6 +89,20 @@ export default {
 }
 .item {
   margin-bottom: 40px;
+  .text {
+    font-size: 15px;
+    color: #444;
+  }
+}
+.code {
+  font-size: 12px;
+  padding: 18px 12px;
+  background-color: #fafafa;
+  > code {
+    color: #3182bd;
+    padding: 0;
+    margin: 0;
+  }
 }
 .info {
   background: rgba($color: #116bfb, $alpha: 0.08);
@@ -84,22 +128,19 @@ export default {
     }
   }
 }
-.basicButtons {
-  .text {
-    font-size: 15px;
-    color: #444;
-  }
-}
-.box {
-  display: flex;
-  align-items: center;
-  background: #ffffff;
+
+.container {
   box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  padding: 30px 50px;
-  margin: 12px 0;
-  > * {
-    margin: 10px;
+  .box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 30px 50px;
+    margin: 12px 0;
+    > * {
+      margin: 10px;
+    }
   }
 }
 </style>
