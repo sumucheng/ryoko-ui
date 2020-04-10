@@ -1,5 +1,10 @@
 <template>
-  <button class="r-button" :class="[type,size]" @click="$emit('click')" :disabled="disabled">
+  <button
+    class="r-button"
+    :class="[type,size,plain&&'plain']"
+    @click="$emit('click')"
+    :disabled="disabled"
+  >
     <slot></slot>
   </button>
 </template>
@@ -8,6 +13,10 @@
 export default {
   props: {
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    plain: {
       type: Boolean,
       default: false
     },
@@ -41,6 +50,59 @@ export default {
   &[disabled] {
     cursor: not-allowed;
   }
+  &.plain.default {
+    &:hover,
+    &:active {
+      color: #409eff;
+      border-color: #409eff;
+      background: #fff;
+    }
+    &[disabled] {
+      color: #c0c4cc;
+      border-color: #ebeef5;
+      background: #fff;
+    }
+  }
+  &.plain.primary {
+    color: #409eff;
+    background: #ecf5ff;
+    border-color: #b3d8ff;
+    &:hover {
+      color: #fff;
+      background-color: #136bff;
+      border-color: #136bff;
+    }
+    &:active {
+      color: #fff;
+      background: #3a8ee6;
+      border-color: #3a8ee6;
+    }
+    &[disabled] {
+      color:#8cc5ff;
+      background: #ecf5ff;
+      border-color: #b3d8ff;
+    }
+  }
+  &.plain.danger {
+    color: #f5573e;
+    background: #fff2f0;
+    border-color: #faab9e;
+    &:hover {
+      color: #fff;
+      background: #f5573e;
+      border-color: #f5573e;
+    }
+    &:active {
+      color: #fff;
+      background: #dd6161;
+      border-color: #dd6161;
+    }
+    &[disabled] {
+      color:#f9a7a7;
+    background: #fff2f0;
+    border-color: #faab9e;
+    }
+  }
   &.default {
     background: #fff;
     border: 1px solid #ccc;
@@ -56,9 +118,9 @@ export default {
       border-color: #409eff;
     }
     &[disabled] {
+    color: #c0c4cc;
       border-color: #ebeef5;
-      color: #c0c4cc;
-      background: #ebeef5;
+      background: #fff;
     }
   }
   &.primary {
