@@ -19,9 +19,7 @@
           <r-button type="primary">主要按钮</r-button>
           <r-button type="danger">危险按钮</r-button>
         </div>
-        <pre class="code">
-            <code>{{code.basic}}</code>
-        </pre>
+        <pre class="code"><code>{{code.basic}}</code></pre>
       </div>
     </div>
     <div class="item">
@@ -33,9 +31,7 @@
           <r-button type="primary" disabled>主要按钮</r-button>
           <r-button type="danger" disabled>危险按钮</r-button>
         </div>
-        <pre class="code">
-            <code>{{code.noUse}}</code>
-        </pre>
+        <pre class="code"><code>{{code.noUse}}</code></pre>
       </div>
     </div>
 
@@ -48,9 +44,7 @@
           <r-button size="middle">默认按钮</r-button>
           <r-button size="small">小型按钮</r-button>
         </div>
-        <pre class="code">
-            <code>{{code.size}}</code>
-        </pre>
+        <pre class="code"><code>{{code.size}}</code></pre>
       </div>
     </div>
   </div>
@@ -65,15 +59,24 @@ export default {
   data() {
     return {
       code: {
-        basic: `<r-button>朴素按钮</r-button>
-      <r-button type="primary">主要按钮</r-button>
-      <r-button type="danger">危险按钮</r-button>`,
-        noUse: `<r-button type="default" disabled>朴素按钮</r-button>
-        <r-button type="primary" disabled>主要按钮</r-button>
-        <r-button type="danger" disabled>危险按钮</r-button>`,
-        size: `<r-button size="large">大型按钮</r-button>
-        <r-button size="middle">默认按钮</r-button>
-        <r-button size="small">小型按钮</r-button>`
+        basic: `
+          <r-button>朴素按钮</r-button>
+          <r-button type="primary">主要按钮</r-button>
+          <r-button type="danger">危险按钮</r-button>`
+          .replace(/\t+| +/g, "")
+          .trim(),
+        noUse: `
+          <r-button type="default" disabled>朴素按钮</r-button>
+          <r-button type="primary" disabled>主要按钮</r-button>
+          <r-button type="danger" disabled>危险按钮</r-button>`
+          .replace(/\t+| +/g, "")
+          .trim(),
+        size: `
+          <r-button size="large">大型按钮</r-button>
+          <r-button size="middle">默认按钮</r-button>
+          <r-button size="small">小型按钮</r-button>`
+          .replace(/\t+| +/g, "")
+          .trim()
       }
     };
   }
@@ -96,7 +99,7 @@ export default {
 }
 .code {
   font-size: 12px;
-  padding: 18px 12px;
+  padding: 18px 24px;
   background-color: #fafafa;
   > code {
     color: #3182bd;
