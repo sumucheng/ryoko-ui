@@ -15,6 +15,7 @@ module.exports = {
                 children: ['/components/button']
             },
         ],
-        repo: 'https://github.com/sumucheng/ryoko-ui'
+        repo: 'https://github.com/sumucheng/ryoko-ui',
+        repoLabel: 'GitHub'
     }
 }
