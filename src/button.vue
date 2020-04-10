@@ -31,7 +31,7 @@ export default {
       type: String,
       default: "default",
       validator(value) {
-        return value === "default" || value === "primary" || value === "danger";
+        return value === "default" || value === "primary" || value === "danger" || value === "success" ;
       }
     }
   }
@@ -80,7 +80,7 @@ export default {
     &[disabled] {
       color:#8cc5ff;
       background: #ecf5ff;
-      border-color: #b3d8ff;
+      border-color: #d9ecff;
     }
   }
   &.plain.danger {
@@ -99,8 +99,28 @@ export default {
     }
     &[disabled] {
       color:#f9a7a7;
-    background: #fff2f0;
-    border-color: #faab9e;
+      background: #fff2f0;
+      border-color: #fde2e2;
+    }
+  }
+  &.plain.success {
+    color: #52C41A;
+    background: #F2FBED;
+    border-color: #A8E18C;
+    &:hover {
+      color: #fff;
+      background: #52C41A ;
+      border-color: #52C41A ;
+    }
+    &:active {
+      color: #fff;
+      background: #5daf34;
+      border-color: #5daf34;
+    }
+    &[disabled] {
+    color: #a4da89;
+    background-color: #f0f9eb;
+    border-color: #e1f3d8;
     }
   }
   &.default {
@@ -159,6 +179,26 @@ export default {
     &[disabled] {
       border-color: #fab6b6;
       background: #fab6b6;
+    }
+  }
+  &.success{
+    color: #fff;
+      background: #52C41A ;
+      border-color: #52C41A ;
+    &:hover {
+      color: #fff;
+          background: #85ce61;
+    border-color: #85ce61;
+    }
+    &:active {
+      color: #fff;
+      background: #5daf34;
+      border-color: #5daf34;
+    }
+    &[disabled] {
+          color: #fff;
+    background-color: #b3e19d;
+    border-color: #b3e19d;
     }
   }
   &.large {

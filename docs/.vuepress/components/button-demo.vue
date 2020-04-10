@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="demo-container">
     <div class="info">按钮用于触发操作。</div>
     <div class="useRule item">
       <div class="title">使用原则</div>
@@ -18,11 +18,13 @@
           <div class="row">
             <r-button>默认按钮</r-button>
             <r-button type="primary">主要按钮</r-button>
+            <r-button type="success">成功按钮</r-button>
             <r-button type="danger">危险按钮</r-button>
           </div>
           <div class="row">
             <r-button plain>朴素按钮</r-button>
             <r-button type="primary" plain>主要按钮</r-button>
+            <r-button type="success" plain>成功按钮</r-button>
             <r-button type="danger" plain>危险按钮</r-button>
           </div>
         </div>
@@ -37,11 +39,13 @@
           <div class="row">
             <r-button type="default" disabled>默认按钮</r-button>
             <r-button type="primary" disabled>主要按钮</r-button>
+            <r-button type="success" disabled>成功按钮</r-button>
             <r-button type="danger" disabled>危险按钮</r-button>
           </div>
           <div class="row">
             <r-button type="default" disabled plain>朴素按钮</r-button>
             <r-button type="primary" disabled plain>主要按钮</r-button>
+            <r-button type="success" disabled plain>成功按钮</r-button>
             <r-button type="danger" disabled plain>危险按钮</r-button>
           </div>
         </div>
@@ -92,7 +96,13 @@ export default {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
           ["size", "尺寸", "string", "large | middle | small", "middle"],
-          ["type", "类型", "string", "default | primary | danger", "default"],
+          [
+            "type",
+            "类型",
+            "string",
+            "default | primary | danger | success",
+            "default"
+          ],
           ["plain", "是否朴素按钮", "boolean", "-", "false"],
           ["disabled", "是否禁用状态", "boolean", "-", "false"]
         ]
@@ -101,6 +111,7 @@ export default {
         basic: `
           <r-button>朴素按钮</r-button>
           <r-button type="primary">主要按钮</r-button>
+          <r-button type="success">成功按钮</r-button>
           <r-button type="danger">危险按钮</r-button>`
           .replace(/\t\t+|  +/g, "")
           .trim(),
@@ -127,7 +138,7 @@ export default {
   font-size: 24px;
   color: #222;
   letter-spacing: 0;
-  margin: 10px 0;
+  margin: 14px 0;
 }
 .item {
   margin-bottom: 40px;
@@ -173,6 +184,7 @@ export default {
 .container {
   box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  margin: 14px 0;
   .box {
     padding: 24px;
     background: #fff;
@@ -185,7 +197,7 @@ export default {
         margin-bottom: 0;
       }
       > * {
-        margin-right: 15px;
+        margin-right: 25px;
       }
     }
   }
