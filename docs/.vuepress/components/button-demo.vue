@@ -1,6 +1,6 @@
 <template>
   <div class="demo-container">
-    <div class="info">按钮用于触发操作。</div>
+    <ViewTip>按钮用于触发操作。</ViewTip>
     <div class="useRule item">
       <div class="title">使用原则</div>
       <ul>
@@ -86,9 +86,11 @@
 
 <script>
 import Button from "../../../src/button";
+import ViewTip from "./view-tip";
 export default {
   components: {
-    "r-button": Button
+    "r-button": Button,
+    ViewTip: ViewTip
   },
   data() {
     return {
@@ -156,18 +158,7 @@ export default {
     color: #3182bd;
   }
 }
-.info {
-  background: rgba($color: #116bfb, $alpha: 0.08);
-  border-radius: 4px;
-  height: 45px;
-  font-size: 14px;
-  color: #0161fb;
-  letter-spacing: 0;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
-  margin-bottom: 40px;
-}
+
 .useRule {
   > ul {
     padding-left: 0;

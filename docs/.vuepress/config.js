@@ -13,6 +13,7 @@ module.exports = {
                     title: '指南',
                     children: ['install/', 'get-started/']
                 },
+                'color/',
                 {
                     title: '组件',
                     children: ['components/button']
