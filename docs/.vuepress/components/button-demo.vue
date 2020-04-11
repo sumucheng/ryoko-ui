@@ -1,8 +1,8 @@
 <template>
-  <div class="demo-container">
+  <DemoLayout>
     <ViewTip>按钮用于触发操作。</ViewTip>
     <div class="useRule item">
-      <div class="title">使用原则</div>
+      <h3>使用原则</h3>
       <ul>
         <li>目前的按钮都应该有：Nomarl、Active、Hover、Loading、Disable 状态。</li>
         <li>按钮文字与按钮图标的颜色在各种情况下都保持一致。</li>
@@ -11,7 +11,7 @@
       </ul>
     </div>
     <div class="item">
-      <div class="title">基础按钮</div>
+      <h3>基础按钮</h3>
       <div class="text">主要按钮承载的是用户优先级最高的按钮，给用户明确的操作指引，帮助用户完成操作。</div>
       <div class="container">
         <div class="box">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">禁用状态</div>
+      <h3>禁用状态</h3>
       <div class="text">按钮不可用状态。</div>
       <div class="container">
         <div class="box">
@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="item">
-      <div class="title">不同尺寸</div>
+      <h3>不同尺寸</h3>
       <div class="text">Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</div>
       <div class="container">
         <div class="box">
@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="attr">
-      <div class="title">Attributes</div>
+      <h3>Attributes</h3>
       <table>
         <thead>
           <tr>
@@ -81,16 +81,18 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </DemoLayout>
 </template>
 
 <script>
 import Button from "../../../src/button";
 import ViewTip from "./view-tip";
+import DemoLayout from "./demo-layout";
 export default {
   components: {
     "r-button": Button,
-    ViewTip: ViewTip
+    ViewTip: ViewTip,
+    DemoLayout: DemoLayout
   },
   data() {
     return {
@@ -136,62 +138,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  font-size: 24px;
-  color: #222;
-  letter-spacing: 0;
-  margin: 14px 0;
-}
-.item {
-  margin-bottom: 40px;
-  .text {
-    font-size: 15px;
-    color: #444;
-  }
-}
-.code {
-  font-size: 12px;
-  padding: 18px 24px;
-  background-color: #fafafa;
-  margin: 0;
-  > code {
-    color: #3182bd;
-  }
-}
-
-.useRule {
-  > ul {
-    padding-left: 0;
-    font-size: 15px;
-    color: #444;
-    > li::before {
-      content: "\02022";
-      color: #0161fb;
-      margin-right: 8px;
-    }
-  }
-}
-
-.container {
-  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  margin: 14px 0;
-  .box {
-    padding: 24px;
-    background: #fff;
-    margin-top: 12px;
-    > .row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      > * {
-        margin-right: 25px;
-      }
-    }
-  }
-}
 </style>
 

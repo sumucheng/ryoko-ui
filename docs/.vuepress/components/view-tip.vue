@@ -13,7 +13,7 @@ export default {};
   background: rgba($color: #116bfb, $alpha: 0.08);
   border-radius: 4px;
   padding: 12px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.6em;
   color: #0161fb;
   letter-spacing: 0;
