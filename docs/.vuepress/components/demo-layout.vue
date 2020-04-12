@@ -44,10 +44,6 @@ th {
 }
 .item {
   margin-bottom: 40px;
-  .text {
-    font-size: 15px;
-    color: #444;
-  }
 }
 .code {
   font-size: 12px;
@@ -58,7 +54,14 @@ th {
     color: #3182bd;
   }
 }
-
+> ul {
+  font-size: 15px;
+  color: #444;
+  padding-left: 0;
+  > li {
+    margin: 0;
+  }
+}
 .useRule {
   > ul {
     padding-left: 0;

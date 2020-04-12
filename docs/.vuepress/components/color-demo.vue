@@ -1,17 +1,23 @@
 <template>
   <DemoLayout>
     <ViewTip>色彩是视觉体验中最重要的一条信息通道。合理地使用颜色可以加强大脑对物件的响应与感知。我们建议尽可能少的使用复杂的色板，以帮助用户更有效地用颜色区分功能类型。</ViewTip>
-    <div class="useRule item" v-for="color in colorList" :key="color.en">
+    <div class="item" v-for="color in colorList" :key="color.en">
       <h3>{{color.zh}}</h3>
-      <ul>
-        <li>{{color.info}}</li>
-      </ul>
+      <p>{{color.info}}</p>
       <div class="row">
         <div class="color-box" v-for="sub in color.subColor" :key="sub.style">
           <div class="color-bg" :style="sub.style"></div>
           <div class="color-name">{{color.en||sub.name}}</div>
           <div class="color-info" v-for="info in sub.info">{{info}}</div>
         </div>
+      </div>
+    </div>
+    <div class="item">
+      <h3>{{grey.name}}</h3>
+      <p>{{grey.info}}</p>
+      <div class="grey-color" v-for="grey in grey.subColor" :key="grey.style" :class="grey.class">
+        <div class="grey-color-box" :style="grey.style"></div>
+        <div class="grey-color-info">{{grey.info}}</div>
       </div>
     </div>
   </DemoLayout>
@@ -27,6 +33,28 @@ export default {
   },
   data() {
     return {
+      grey: {
+        name: "灰度颜色",
+        info:
+          "针对正文和图标，占位符，分割线、背景等元素和组件，根据不同的使用场景应使用恰当的正文灰色。",
+        subColor: [
+          { style: "background: #333333;", info: "", class: "a" },
+          { style: "background: #5F5F5F;", info: "正文/图标", class: "a" },
+          { style: "background: #888888;", info: "", class: "a" },
+          {
+            style: "background: #A0A0A0;",
+            info: "正文/图标（禁用状态）",
+            class: "b"
+          },
+          { style: "background: #CCCCCC;", info: "按钮描边", class: "c" },
+          { style: "background: #E9E9E9;", info: "分割线", class: "b" },
+          {
+            style: "background: #F3F3F8;",
+            info: "背景色／表头底色／表单选中/表格内部分割线",
+            class: "b"
+          }
+        ]
+      },
       colorList: {
         blue: {
           en: "Blue",
@@ -174,6 +202,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.grey-color {
+  display: flex;
+  &.b {
+    margin-top: 5px;
+  }
+  &.c {
+    margin-top: 35px;
+  }
+}
+.grey-color-box {
+  min-width: 400px;
+  height: 30px;
+  margin-right: 14px;
+  flex-wrap: nowrap;
+}
 .row {
   display: flex;
   align-items: center;

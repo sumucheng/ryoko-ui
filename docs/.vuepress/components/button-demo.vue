@@ -12,7 +12,7 @@
     </div>
     <div class="item">
       <h3>基础按钮</h3>
-      <div class="text">主要按钮承载的是用户优先级最高的按钮，给用户明确的操作指引，帮助用户完成操作。</div>
+      <p>主要按钮承载的是用户优先级最高的按钮，给用户明确的操作指引，帮助用户完成操作。</p>
       <div class="container">
         <div class="box">
           <div class="row">
@@ -33,7 +33,7 @@
     </div>
     <div class="item">
       <h3>禁用状态</h3>
-      <div class="text">按钮不可用状态。</div>
+      <p>按钮不可用状态。</p>
       <div class="container">
         <div class="box">
           <div class="row">
@@ -54,7 +54,7 @@
     </div>
     <div class="item">
       <h3>不同尺寸</h3>
-      <div class="text">Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</div>
+      <p>Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</p>
       <div class="container">
         <div class="box">
           <div class="row">
