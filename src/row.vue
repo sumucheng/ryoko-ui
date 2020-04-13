@@ -1,17 +1,29 @@
 <template>
-  <div class="row">
+  <div class="row" :style="{marginLeft: -gutter/2+'px', marginRight: -gutter/2+'px'}">
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    gutter: {
+      type: Number,
+      default: 0
+    }
+  },
+  mounted() {
+    this.$children.forEach(vm => {
+      vm.gutter = this.gutter;
+    });
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .row {
   display: flex;
-  height: 36px;
+
   margin-bottom: 20px;
   &:last-child {
     margin-bottom: 0;

@@ -7,37 +7,125 @@
       <div class="container">
         <div class="box">
           <r-row>
-            <r-col span="24" class="grid-item light">24</r-col>
+            <r-col :span="24">
+              <div class="grid-item light">24</div>
+            </r-col>
           </r-row>
           <r-row>
-            <r-col span="12" class="grid-item dark">12</r-col>
-            <r-col span="12" class="grid-item light">12</r-col>
+            <r-col :span="12">
+              <div class="grid-item dark">12</div>
+            </r-col>
+            <r-col :span="12">
+              <div class="grid-item light">12</div>
+            </r-col>
           </r-row>
           <r-row>
-            <r-col span="8" class="grid-item dark">8</r-col>
-            <r-col span="8" class="grid-item light">8</r-col>
-            <r-col span="8" class="grid-item dark">8</r-col>
+            <r-col :span="8">
+              <div class="grid-item dark">8</div>
+            </r-col>
+            <r-col :span="8">
+              <div class="grid-item light">8</div>
+            </r-col>
+            <r-col :span="8">
+              <div class="grid-item dark">8</div>
+            </r-col>
           </r-row>
           <r-row>
-            <r-col span="6" class="grid-item dark">6</r-col>
-            <r-col span="6" class="grid-item light">6</r-col>
-            <r-col span="6" class="grid-item dark">6</r-col>
-            <r-col span="6" class="grid-item light">6</r-col>
+            <r-col :span="6">
+              <div class="grid-item dark">6</div>
+            </r-col>
+            <r-col :span="6">
+              <div class="grid-item light">6</div>
+            </r-col>
+            <r-col :span="6">
+              <div class="grid-item dark">6</div>
+            </r-col>
+            <r-col :span="6">
+              <div class="grid-item light">6</div>
+            </r-col>
           </r-row>
         </div>
         <pre class="code"><code>{{code.basic}}</code></pre>
       </div>
     </div>
-    <div class="attr">
-      <h3>Attributes</h3>
+    <div class="item">
+      <h3>列间隔</h3>
+      <div class="container">
+        <div class="box">
+          <r-row :gutter="10">
+            <r-col :span="24">
+              <div class="grid-item light">24</div>
+            </r-col>
+          </r-row>
+          <r-row :gutter="20">
+            <r-col :span="12">
+              <div class="grid-item light">12</div>
+            </r-col>
+            <r-col :span="12">
+              <div class="grid-item light">12</div>
+            </r-col>
+          </r-row>
+        </div>
+        <pre class="code"><code>{{code.basic}}</code></pre>
+      </div>
+    </div>
+    <div class="item">
+      <h3>列偏移</h3>
+      <div class="container">
+        <div class="box">
+          <r-row>
+            <r-col :span="6" :offset="6">
+              <div class="grid-item light">6</div>
+            </r-col>
+            <r-col :span="6" :offset="6">
+              <div class="grid-item light">6</div>
+            </r-col>
+          </r-row>
+          <r-row>
+            <r-col :span="6">
+              <div class="grid-item light">6</div>
+            </r-col>
+            <r-col :span="6" :offset="6">
+              <div class="grid-item light">6</div>
+            </r-col>
+          </r-row>
+          <r-row>
+            <r-col :span="6" :offset="6">
+              <div class="grid-item light">12</div>
+            </r-col>
+            <r-col :span="6">
+              <div class="grid-item light">12</div>
+            </r-col>
+          </r-row>
+        </div>
+        <pre class="code"><code>{{code.basic}}</code></pre>
+      </div>
+    </div>
+    <div class="apis">
+      <h3>Row API</h3>
       <table>
         <thead>
           <tr>
-            <th v-for="attr in attrs.header" :key="attr">{{attr}}</th>
+            <th v-for="api in rowApis.header" :key="api">{{api}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in attrs.body" :key="item[0]">
+          <tr v-for="item in rowApis.body" :key="item[0]">
+            <td v-for="attr in item" :key="attr">{{attr}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="apis">
+      <h3>Col API</h3>
+      <table>
+        <thead>
+          <tr>
+            <th v-for="api in colApis.header" :key="api">{{api}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in colApis.body" :key="item[0]">
             <td v-for="attr in item" :key="attr">{{attr}}</td>
           </tr>
         </tbody>
@@ -60,19 +148,15 @@ export default {
   },
   data() {
     return {
-      attrs: {
+      rowApis: {
+        header: ["参数", "说明", "类型", "可选值", "默认值"],
+        body: [["gutter", "栅格间隔", "number", "-", "0"]]
+      },
+      colApis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
-          ["size", "尺寸", "string", "large | middle | small", "middle"],
-          [
-            "type",
-            "类型",
-            "string",
-            "default | primary | danger | success",
-            "default"
-          ],
-          ["plain", "是否朴素按钮", "boolean", "-", "false"],
-          ["disabled", "是否禁用状态", "boolean", "-", "false"]
+          ["span", "栅格占据的列数", "number", "-", "24"],
+          ["offset", "栅格左侧的间隔格数", "number", "-", "24"]
         ]
       },
       code: {
@@ -86,6 +170,7 @@ export default {
 <style lang="scss" scoped>
 .light {
   background: #e5efff;
+  color: #136bff;
 }
 .dark {
   background: #136bff;
@@ -95,6 +180,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 36px;
+  border-radius: 4px;
 }
 </style>
 

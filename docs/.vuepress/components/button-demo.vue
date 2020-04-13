@@ -65,16 +65,16 @@
         <pre class="code"><code>{{code.size}}</code></pre>
       </div>
     </div>
-    <div class="attr">
-      <h3>Attributes</h3>
+    <div class="apis">
+      <h3>API</h3>
       <table>
         <thead>
           <tr>
-            <th v-for="attr in attrs.header" :key="attr">{{attr}}</th>
+            <th v-for="api in apis.header" :key="api">{{api}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in attrs.body" :key="item[0]">
+          <tr v-for="item in apis.body" :key="item[0]">
             <td v-for="attr in item" :key="attr">{{attr}}</td>
           </tr>
         </tbody>
@@ -97,7 +97,7 @@ export default {
   },
   data() {
     return {
-      attrs: {
+      apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
           ["size", "尺寸", "string", "large | middle | small", "middle"],
