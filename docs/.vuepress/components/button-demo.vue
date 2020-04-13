@@ -102,23 +102,42 @@ export default {
       },
       code: {
         basic: `
-          <r-button>朴素按钮</r-button>
+        <r-row>
+          <r-button>默认按钮</r-button>
           <r-button type="primary">主要按钮</r-button>
           <r-button type="success">成功按钮</r-button>
-          <r-button type="danger">危险按钮</r-button>`
-          .replace(/\t\t+|  +/g, "")
+          <r-button type="danger">危险按钮</r-button>
+        </r-row>
+        <r-row>
+          <r-button plain>朴素按钮</r-button>
+          <r-button type="primary" plain>主要按钮</r-button>
+          <r-button type="success" plain>成功按钮</r-button>
+          <r-button type="danger" plain>危险按钮</r-button>
+        </r-row>`
+          .replace(/^ {8}/gm, "")
           .trim(),
         noUse: `
-          <r-button type="default" disabled>朴素按钮</r-button>
+        <r-row>
+          <r-button type="default" disabled>默认按钮</r-button>
           <r-button type="primary" disabled>主要按钮</r-button>
-          <r-button type="danger" disabled>危险按钮</r-button>`
-          .replace(/\t\t+|  +/g, "")
+          <r-button type="success" disabled>成功按钮</r-button>
+          <r-button type="danger" disabled>危险按钮</r-button>
+        </r-row>
+        <r-row>
+          <r-button type="default" disabled plain>朴素按钮</r-button>
+          <r-button type="primary" disabled plain>主要按钮</r-button>
+          <r-button type="success" disabled plain>成功按钮</r-button>
+          <r-button type="danger" disabled plain>危险按钮</r-button>
+        </r-row>`
+          .replace(/^ {8}/gm, "")
           .trim(),
         size: `
+        <r-row>
           <r-button size="large">大型按钮</r-button>
           <r-button size="middle">默认按钮</r-button>
-          <r-button size="small">小型按钮</r-button>`
-          .replace(/\t\t+|  +/g, "")
+          <r-button size="small">小型按钮</r-button>
+        </r-row>`
+          .replace(/^ {8}/gm, "")
           .trim()
       }
     };

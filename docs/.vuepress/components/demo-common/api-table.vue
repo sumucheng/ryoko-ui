@@ -20,8 +20,8 @@
 export default {
   props: {
     apis: {
-      type: Array,
-      default: []
+      type: Object,
+      default: {}
     }
   }
 };

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Row from "../../../src/row";
+import Row from ".../../../src/row";
 export default {
   components: {
     "r-row": Row

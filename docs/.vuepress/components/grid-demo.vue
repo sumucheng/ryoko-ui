@@ -1,6 +1,6 @@
 <template>
   <DemoLayout>
-    <ViewTip>24 栅格系统。</ViewTip>
+    <ViewTip>通过基础的 24 栅格系统，迅速简便地创建布局。</ViewTip>
     <div class="item">
       <h3>基础布局</h3>
       <p>使用单一分栏创建基础的栅格布局。</p>
@@ -66,7 +66,7 @@
             </r-col>
           </r-row>
         </div>
-        <pre class="code"><code>{{code.basic}}</code></pre>
+        <pre class="code"><code>{{code.gutter}}</code></pre>
       </div>
     </div>
     <div class="item">
@@ -95,7 +95,7 @@
             </r-col>
           </r-row>
         </div>
-        <pre class="code"><code>{{code.basic}}</code></pre>
+        <pre class="code"><code>{{code.offset}}</code></pre>
       </div>
     </div>
     <ApiTable :apis="rowApis" />
@@ -132,7 +132,97 @@ export default {
         ]
       },
       code: {
-        basic: ``.replace(/\t\t+|  +/g, "").trim()
+        basic: `
+        <r-row>
+          <r-col :span="24"><div class="grid-item light">24</div></r-col>
+        </r-row>
+        <r-row>
+          <r-col :span="12"><div class="grid-item dark">12</div></r-col>
+          <r-col :span="12"><div class="grid-item light">12</div></r-col>
+        </r-row>
+        <r-row>
+          <r-col :span="8"><div class="grid-item dark">8</div></r-col>
+          <r-col :span="8"><div class="grid-item light">8</div></r-col>
+          <r-col :span="8"><div class="grid-item dark">8</div></r-col>
+        </r-row>
+        <r-row>
+          <r-col :span="6"><div class="grid-item dark">6</div></r-col>
+          <r-col :span="6"><div class="grid-item light">6</div></r-col>
+          <r-col :span="6"><div class="grid-item dark">6</div></r-col>
+          <r-col :span="6"><div class="grid-item light">6</div></r-col>
+        </r-row>
+
+        <style>
+          .light {
+            background: #e5efff;
+            color: #136bff;
+          }
+          .dark {
+            background: #136bff;
+            color: white;
+          }
+          .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 36px;
+            border-radius: 4px;
+          }
+        </style>`
+          .replace(/^ {8}/gm, "")
+          .trim(),
+        gutter: `
+        <r-row :gutter="10">
+          <r-col :span="24"><div class="grid-item light">24</div></r-col>
+        </r-row>
+        <r-row :gutter="20">
+          <r-col :span="12"><div class="grid-item light">12</div></r-col>
+          <r-col :span="12"><div class="grid-item light">12</div></r-col>
+        </r-row>
+
+        <style>
+          .light {
+            background: #e5efff;
+            color: #136bff;
+          }
+          .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 36px;
+            border-radius: 4px;
+          }
+        </style>`
+          .replace(/^ {8}/gm, "")
+          .trim(),
+        offset: `
+        <r-row :gutter="20">
+          <r-col :span="6" :offset="6"><div class="grid-item light">6</div></r-col>
+          <r-col :span="6" :offset="6"><div class="grid-item light">6</div></r-col>
+        </r-row>
+        <r-row :gutter="20">
+          <r-col :span="6"><div class="grid-item light">6</div></r-col>
+          <r-col :span="6" :offset="6"><div class="grid-item light">6</div></r-col>
+        </r-row>
+        <r-row :gutter="20">
+          <r-col :span="12" :offset="6"><div class="grid-item light">12</div></r-col>
+        </r-row>
+
+        <style>
+          .light {
+            background: #e5efff;
+            color: #136bff;
+          }
+          .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 36px;
+            border-radius: 4px;
+          }
+        </style>        `
+          .replace(/^ {8}/gm, "")
+          .trim()
       }
     };
   }
