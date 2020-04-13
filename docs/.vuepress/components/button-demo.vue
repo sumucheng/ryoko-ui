@@ -27,7 +27,7 @@
             <r-button type="danger" plain>危险按钮</r-button>
           </r-row>
         </div>
-        <pre class="code"><code>{{code.basic}}</code></pre>
+        <Code :code="code.basic" />
       </div>
     </div>
     <div class="item">
@@ -48,7 +48,7 @@
             <r-button type="danger" disabled plain>危险按钮</r-button>
           </r-row>
         </div>
-        <pre class="code"><code>{{code.noUse}}</code></pre>
+        <Code :code="code.noUse" />
       </div>
     </div>
     <div class="item">
@@ -62,7 +62,7 @@
             <r-button size="small">小型按钮</r-button>
           </r-row>
         </div>
-        <pre class="code"><code>{{code.size}}</code></pre>
+        <Code :code="code.size" />
       </div>
     </div>
     <ApiTable :apis="apis" />
@@ -74,6 +74,7 @@ import Button from "../../../src/button";
 import ViewTip from "./demo-common/view-tip";
 import ApiTable from "./demo-common/api-table";
 import DemoLayout from "./demo-common/demo-layout";
+import Code from "./demo-common/code";
 import Row from "../../../src/row";
 export default {
   components: {
@@ -81,7 +82,8 @@ export default {
     "r-row": Row,
     ViewTip: ViewTip,
     DemoLayout: DemoLayout,
-    ApiTable: ApiTable
+    ApiTable: ApiTable,
+    Code: Code
   },
   data() {
     return {
@@ -113,9 +115,7 @@ export default {
           <r-button type="primary" plain>主要按钮</r-button>
           <r-button type="success" plain>成功按钮</r-button>
           <r-button type="danger" plain>危险按钮</r-button>
-        </r-row>`
-          .replace(/^ {8}/gm, "")
-          .trim(),
+        </r-row>`,
         noUse: `
         <r-row>
           <r-button type="default" disabled>默认按钮</r-button>
@@ -128,17 +128,13 @@ export default {
           <r-button type="primary" disabled plain>主要按钮</r-button>
           <r-button type="success" disabled plain>成功按钮</r-button>
           <r-button type="danger" disabled plain>危险按钮</r-button>
-        </r-row>`
-          .replace(/^ {8}/gm, "")
-          .trim(),
+        </r-row>`,
         size: `
         <r-row>
           <r-button size="large">大型按钮</r-button>
           <r-button size="middle">默认按钮</r-button>
           <r-button size="small">小型按钮</r-button>
         </r-row>`
-          .replace(/^ {8}/gm, "")
-          .trim()
       }
     };
   }

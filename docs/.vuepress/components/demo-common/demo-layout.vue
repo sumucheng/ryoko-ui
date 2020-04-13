@@ -25,15 +25,7 @@ h3 {
 .item {
   margin-bottom: 40px;
 }
-.code {
-  font-size: 12px;
-  padding: 18px 24px;
-  background-color: #fafafa;
-  margin: 0;
-  > code {
-    color: #3182bd;
-  }
-}
+
 > ul {
   font-size: 15px;
   color: #444;
