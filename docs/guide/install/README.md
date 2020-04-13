@@ -7,10 +7,10 @@ title:安装
 :::
 ## NPM 安装
 ryoko-ui 已发布至 NPM ，您可以使用 npm / yarn 来安装。
-``` git
+``` sh
 npm install ryoko-ui
 ```
 或
-``` git
+``` sh
 yarn add ryoko-ui
 ```

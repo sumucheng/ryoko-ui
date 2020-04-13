@@ -4,7 +4,6 @@
     <div class="useRule item">
       <h3>使用原则</h3>
       <ul>
-        <li>目前的按钮都应该有：Nomarl、Active、Hover、Loading、Disable 状态。</li>
         <li>按钮文字与按钮图标的颜色在各种情况下都保持一致。</li>
         <li>每个页面通常只有不超过三个的主要按钮，给用户明确的操作指引。</li>
         <li>加载状态时，加载指示器替代按钮文字，不影响按钮的尺寸与位置。</li>
@@ -15,18 +14,18 @@
       <p>主要按钮承载的是用户优先级最高的按钮，给用户明确的操作指引，帮助用户完成操作。</p>
       <div class="container">
         <div class="box">
-          <div class="row">
+          <r-row>
             <r-button>默认按钮</r-button>
             <r-button type="primary">主要按钮</r-button>
             <r-button type="success">成功按钮</r-button>
             <r-button type="danger">危险按钮</r-button>
-          </div>
-          <div class="row">
+          </r-row>
+          <r-row>
             <r-button plain>朴素按钮</r-button>
             <r-button type="primary" plain>主要按钮</r-button>
             <r-button type="success" plain>成功按钮</r-button>
             <r-button type="danger" plain>危险按钮</r-button>
-          </div>
+          </r-row>
         </div>
         <pre class="code"><code>{{code.basic}}</code></pre>
       </div>
@@ -36,18 +35,18 @@
       <p>按钮不可用状态。</p>
       <div class="container">
         <div class="box">
-          <div class="row">
+          <r-row>
             <r-button type="default" disabled>默认按钮</r-button>
             <r-button type="primary" disabled>主要按钮</r-button>
             <r-button type="success" disabled>成功按钮</r-button>
             <r-button type="danger" disabled>危险按钮</r-button>
-          </div>
-          <div class="row">
+          </r-row>
+          <r-row>
             <r-button type="default" disabled plain>朴素按钮</r-button>
             <r-button type="primary" disabled plain>主要按钮</r-button>
             <r-button type="success" disabled plain>成功按钮</r-button>
             <r-button type="danger" disabled plain>危险按钮</r-button>
-          </div>
+          </r-row>
         </div>
         <pre class="code"><code>{{code.noUse}}</code></pre>
       </div>
@@ -57,11 +56,11 @@
       <p>Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</p>
       <div class="container">
         <div class="box">
-          <div class="row">
+          <r-row>
             <r-button size="large">大型按钮</r-button>
             <r-button size="middle">默认按钮</r-button>
             <r-button size="small">小型按钮</r-button>
-          </div>
+          </r-row>
         </div>
         <pre class="code"><code>{{code.size}}</code></pre>
       </div>
@@ -88,9 +87,11 @@
 import Button from "../../../src/button";
 import ViewTip from "./view-tip";
 import DemoLayout from "./demo-layout";
+import Row from "../../../src/row";
 export default {
   components: {
     "r-button": Button,
+    "r-row": Row,
     ViewTip: ViewTip,
     DemoLayout: DemoLayout
   },
@@ -138,5 +139,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.row {
+  align-items: center;
+}
+.r-button {
+  margin-left: 20px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
 </style>
 

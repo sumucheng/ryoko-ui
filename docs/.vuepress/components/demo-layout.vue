@@ -5,7 +5,12 @@
 </template>
 
 <script>
-export default {};
+import Row from "../../../src/row";
+export default {
+  components: {
+    "r-row": Row
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -83,17 +88,6 @@ th {
     padding: 24px;
     background: #fff;
     margin-top: 12px;
-    > .row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      > * {
-        margin-right: 25px;
-      }
-    }
   }
 }
 </style>

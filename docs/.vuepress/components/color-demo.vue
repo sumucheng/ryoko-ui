@@ -67,7 +67,7 @@ export default {
             },
             {
               style: "background:#E5EFFF",
-              info: ["HEX  #E5EFFF;", "RGB  229 239 255"]
+              info: ["HEX  #E5EFFF", "RGB  229 239 255"]
             },
             {
               style: "background:#0047C0",

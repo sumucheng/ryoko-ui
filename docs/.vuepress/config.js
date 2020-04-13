@@ -2,7 +2,10 @@ module.exports = {
     title: 'Ryoko UI',
     description: '',
     base: '/ryoko-ui/',
+    plugins: ['@vuepress/back-to-top'],
     themeConfig: {
+        smoothScroll: true,
+        sidebarDepth: 0,
         nav: [
             { text: '主页', link: '/' },
             { text: '文档', link: '/guide/install/' }
@@ -16,7 +19,7 @@ module.exports = {
                 'color/',
                 {
                     title: '组件',
-                    children: ['components/button']
+                    children: ['components/button', 'components/grid']
                 },
             ]
         },
