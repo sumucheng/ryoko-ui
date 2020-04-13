@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import ViewTip from "./view-tip";
-import DemoLayout from "./demo-layout";
+import ViewTip from "./demo-common/view-tip";
+import DemoLayout from "./demo-common/demo-layout";
 export default {
   components: {
     ViewTip: ViewTip,

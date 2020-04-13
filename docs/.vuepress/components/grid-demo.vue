@@ -73,7 +73,7 @@
       <h3>列偏移</h3>
       <div class="container">
         <div class="box">
-          <r-row>
+          <r-row :gutter="20">
             <r-col :span="6" :offset="6">
               <div class="grid-item light">6</div>
             </r-col>
@@ -81,7 +81,7 @@
               <div class="grid-item light">6</div>
             </r-col>
           </r-row>
-          <r-row>
+          <r-row :gutter="20">
             <r-col :span="6">
               <div class="grid-item light">6</div>
             </r-col>
@@ -89,11 +89,8 @@
               <div class="grid-item light">6</div>
             </r-col>
           </r-row>
-          <r-row>
-            <r-col :span="6" :offset="6">
-              <div class="grid-item light">12</div>
-            </r-col>
-            <r-col :span="6">
+          <r-row :gutter="20">
+            <r-col :span="12" :offset="6">
               <div class="grid-item light">12</div>
             </r-col>
           </r-row>
@@ -101,48 +98,23 @@
         <pre class="code"><code>{{code.basic}}</code></pre>
       </div>
     </div>
-    <div class="apis">
-      <h3>Row API</h3>
-      <table>
-        <thead>
-          <tr>
-            <th v-for="api in rowApis.header" :key="api">{{api}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in rowApis.body" :key="item[0]">
-            <td v-for="attr in item" :key="attr">{{attr}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="apis">
-      <h3>Col API</h3>
-      <table>
-        <thead>
-          <tr>
-            <th v-for="api in colApis.header" :key="api">{{api}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in colApis.body" :key="item[0]">
-            <td v-for="attr in item" :key="attr">{{attr}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ApiTable :apis="rowApis" />
+    <ApiTable :apis="colApis" />
   </DemoLayout>
 </template>
 
 <script>
-import ViewTip from "./view-tip";
-import DemoLayout from "./demo-layout";
+import ViewTip from "./demo-common/view-tip";
+import DemoLayout from "./demo-common/demo-layout";
+import ApiTable from "./demo-common/api-table";
 import Row from "../../../src/row";
 import Col from "../../../src/col";
+
 export default {
   components: {
     ViewTip: ViewTip,
     DemoLayout: DemoLayout,
+    ApiTable: ApiTable,
     "r-row": Row,
     "r-col": Col
   },

@@ -65,35 +65,23 @@
         <pre class="code"><code>{{code.size}}</code></pre>
       </div>
     </div>
-    <div class="apis">
-      <h3>API</h3>
-      <table>
-        <thead>
-          <tr>
-            <th v-for="api in apis.header" :key="api">{{api}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in apis.body" :key="item[0]">
-            <td v-for="attr in item" :key="attr">{{attr}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <ApiTable :apis="apis" />
   </DemoLayout>
 </template>
 
 <script>
 import Button from "../../../src/button";
-import ViewTip from "./view-tip";
-import DemoLayout from "./demo-layout";
+import ViewTip from "./demo-common/view-tip";
+import ApiTable from "./demo-common/api-table";
+import DemoLayout from "./demo-common/demo-layout";
 import Row from "../../../src/row";
 export default {
   components: {
     "r-button": Button,
     "r-row": Row,
     ViewTip: ViewTip,
-    DemoLayout: DemoLayout
+    DemoLayout: DemoLayout,
+    ApiTable: ApiTable
   },
   data() {
     return {

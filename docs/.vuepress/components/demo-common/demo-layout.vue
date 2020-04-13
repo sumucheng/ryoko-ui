@@ -21,32 +21,7 @@ h3 {
   font-weight: normal;
   margin: 16px 0;
 }
-table {
-  width: 100%;
-  display: table;
-  background-color: #fff;
-}
-th {
-  text-align: left;
-  color: #909399;
-  font-weight: normal;
-}
-thead > tr {
-  border-top: 0;
-  > th {
-    border-top: 0;
-  }
-}
-td {
-  color: #606266;
-}
-td,
-th {
-  background: #fff;
-  border-left: 0;
-  border-right: 0;
-  padding: 15px;
-}
+
 .item {
   margin-bottom: 40px;
 }
@@ -89,8 +64,5 @@ th {
     background: #fff;
     margin-top: 12px;
   }
-}
-.apis {
-  margin-bottom: 30px;
 }
 </style>
