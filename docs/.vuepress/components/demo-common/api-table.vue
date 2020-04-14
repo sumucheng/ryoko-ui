@@ -1,6 +1,6 @@
 <template>
   <div class="apis">
-    <h3>API</h3>
+    <h3>{{name}}</h3>
     <table>
       <thead>
         <tr>
@@ -19,6 +19,10 @@
 <script>
 export default {
   props: {
+    name: {
+      type: String,
+      default: "API"
+    },
     apis: {
       type: Object,
       default: {}

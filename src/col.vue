@@ -88,7 +88,7 @@ export default {
       }
     }
   }
-  @media (min-width: 576px) and (max-width: 992px) {
+  @media (min-width: 576px) {
     $class: col-pad-;
     @for $n from 0 through 24 {
       &.#{$class}#{$n} {

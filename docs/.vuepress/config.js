@@ -13,13 +13,13 @@ module.exports = {
         sidebar: {
             '/guide/': [
                 {
-                    title: '指南',
+                    title: '开始',
                     children: ['install/', 'get-started/']
                 },
                 'color/',
                 {
                     title: '组件',
-                    children: ['components/button', 'components/grid']
+                    children: ['components/button', 'components/grid', 'components/layout']
                 },
             ]
         },

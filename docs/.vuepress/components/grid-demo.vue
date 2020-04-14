@@ -135,8 +135,8 @@
         <Code :code="code.responsive" />
       </div>
     </div>
-    <ApiTable :apis="rowApis" />
-    <ApiTable :apis="colApis" />
+    <ApiTable name="Row API" :apis="rowApis" />
+    <ApiTable name="Col API" :apis="colApis" />
   </DemoLayout>
 </template>
 
