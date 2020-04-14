@@ -6,9 +6,15 @@
 
 <script>
 import Row from ".../../../src/row";
+import ViewTip from "./view-tip";
+import ApiTable from "./api-table";
+import Code from "./code";
 export default {
   components: {
-    "r-row": Row
+    "r-row": Row,
+    ViewTip: ViewTip,
+    ApiTable: ApiTable,
+    Code: Code
   }
 };
 </script>

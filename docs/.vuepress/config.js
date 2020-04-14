@@ -19,7 +19,7 @@ module.exports = {
                 'color/',
                 {
                     title: '组件',
-                    children: ['components/button', 'components/grid', 'components/layout']
+                    children: ['components/button', 'components/grid', 'components/layout', 'components/toast']
                 },
             ]
         },
