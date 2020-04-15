@@ -23,7 +23,7 @@
             <r-button @click="open4">警告</r-button>
           </r-row>
         </div>
-        <Code :code="code.basic" />
+        <Code :code="code.type" />
       </div>
     </div>
     <div class="item">
@@ -35,7 +35,7 @@
             <r-button @click="open5">默认</r-button>
           </r-row>
         </div>
-        <Code :code="code.basic" />
+        <Code :code="code.close" />
       </div>
     </div>
     <div class="item">
@@ -48,7 +48,7 @@
             <r-button @click="open7">10 秒后自动关闭</r-button>
           </r-row>
         </div>
-        <Code :code="code.basic" />
+        <Code :code="code.time" />
       </div>
     </div>
     <ApiTable name="Options" :apis="options" />
@@ -79,7 +79,7 @@ export default {
   methods: {
     open1() {
       this.$toast({
-        text: "这是一条普通的消息提示",
+        text: "这是一条普通的消息提示。",
         type: "default"
       });
     },
@@ -92,8 +92,7 @@ export default {
     open3() {
       this.$toast({
         text: "恭喜！你所提交的信息已经审核通过，如有问题请联系客服。",
-        type: "success",
-        duration: 0
+        type: "success"
       });
     },
     open4() {
@@ -104,20 +103,20 @@ export default {
     },
     open5() {
       this.$toast({
-        text: "可以手动关闭",
+        text: "可以手动关闭。",
         showClose: true
       });
     },
     open6() {
       this.$toast({
-        text: "不会自动关闭",
+        text: "不会自动关闭。",
         showClose: true,
         duration: 0
       });
     },
     open7() {
       this.$toast({
-        text: "10 秒后自动关闭",
+        text: "10 秒后自动关闭。",
         duration: 10
       });
     }
@@ -148,11 +147,72 @@ export default {
       },
       code: {
         basic: `
+        <r-button @click="open">打开吐司提示</r-button>
+        
+        open(){
+          this.$toast({ text: "这是一条普通的消息提示。" });
+        }`,
+        type: `
+        <r-row>
+          <r-button @click="open1">默认</r-button>
+          <r-button @click="open2">错误</r-button>
+          <r-button @click="open3">成功</r-button>
+          <r-button @click="open4">警告</r-button>
+        </r-row>
 
-        <style>
+        open1() {
+          this.$toast({
+            text: "这是一条普通的消息提示。",
+            type: "default"
+          });
+        },
+        open2() {
+          this.$toast({
+            text: "系统错误，请稍后重试。",
+            type: "error"
+          });
+        },
+        open3() {
+          this.$toast({
+            text: "恭喜！你所提交的信息已经审核通过，如有问题请联系客服。",
+            type: "success"
+          });
+        },
+        open4() {
+          this.$toast({
+            text: "警告！系统将于 15 : 00 - 17 : 00 进行升级，请及时保存你的资料！",
+            type: "warning"
+          });
+        }`,
+        close: `
+        <r-button @click="open">默认</r-button>
+        
+        open() {
+          this.$toast({
+            text: "可以手动关闭。",
+            showClose: true
+          });
+        }
+        `,
+        time: `
+        <r-row>
+          <r-button @click="open1">不会自动关闭</r-button>
+          <r-button @click="open2">10 秒后自动关闭</r-button>
+        </r-row>
 
-        </style>
-        `
+        open1() {
+          this.$toast({
+            text: "不会自动关闭。",
+            showClose: true,
+            duration: 0
+          });
+        },
+        open2() {
+          this.$toast({
+            text: "10 秒后自动关闭。",
+            duration: 10
+          });
+        }`
       }
     };
   }
@@ -167,4 +227,3 @@ export default {
   }
 }
 </style>
-

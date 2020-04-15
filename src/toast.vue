@@ -1,9 +1,13 @@
 <template>
-  <div class="toast" :class="type">
-    <Icon :name="type" />
-    <div class="text">{{text}}</div>
-    <div class="close" v-if="showClose" @click="close">×</div>
-  </div>
+  <transition>
+    <div class="toast" :class="type" v-show="visible">
+      <Icon :name="type" />
+      <div class="text">{{text}}</div>
+      <div class="close" v-if="showClose" @click="close">
+        <Icon name="close" />
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -11,6 +15,11 @@ import Icon from "./icon";
 
 export default {
   name: "toast",
+  data() {
+    return {
+      visible: true
+    };
+  },
   components: {
     Icon
   },
@@ -37,9 +46,12 @@ export default {
   },
   methods: {
     close() {
+      this.visible = false;
       this.onClose && this.onClose();
-      this.$el.remove();
-      this.$destroy();
+      setTimeout(() => {
+        this.$el.remove();
+        this.$destroy();
+      }, 2000);
     }
   },
   mounted() {
@@ -53,19 +65,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%) translateX(-50%);
+  }
+}
+
 .toast {
   position: fixed;
-  top: 10px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
+  animation: slide-down 500ms;
   background: #e5efff;
   border: 1px solid #85b3ff;
   border-radius: 4px;
   font-size: 14px;
   color: #5f5f5f;
   letter-spacing: 0;
-  padding: 8px;
+  padding: 10px 8px;
   display: flex;
   align-items: center;
   &.success {
@@ -95,8 +119,32 @@ export default {
     }
   }
   .close {
-    padding-left: 15px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon {
+      fill: #888;
+      width: 0.65em;
+      height: 0.65em;
+      &:hover {
+        fill: #136bff;
+      }
+    }
   }
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s;
+}
+.v-enter-to,
+.v-leave {
+  opacity: 1;
+  transform: translateY(0%) translateX(-50%);
+}
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(-100%) translateX(-50%);
 }
 </style>
