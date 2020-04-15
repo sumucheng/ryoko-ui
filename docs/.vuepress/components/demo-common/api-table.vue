@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr v-for="api in apis.body" :key="api[0]">
-          <td v-for="item in api" :key="item">{{item}}</td>
+          <td v-for="(item,index) in api" :key="index">{{item}}</td>
         </tr>
       </tbody>
     </table>

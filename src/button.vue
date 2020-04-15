@@ -10,7 +10,9 @@
 </template>
 
 <script>
+import Icon from "./icon";
 export default {
+  components: { Icon },
   props: {
     disabled: {
       type: Boolean,
@@ -31,7 +33,12 @@ export default {
       type: String,
       default: "default",
       validator(value) {
-        return value === "default" || value === "primary" || value === "danger" || value === "success" ;
+        return (
+          value === "default" ||
+          value === "primary" ||
+          value === "danger" ||
+          value === "success"
+        );
       }
     }
   }
@@ -78,7 +85,7 @@ export default {
       border-color: #3a8ee6;
     }
     &[disabled] {
-      color:#8cc5ff;
+      color: #8cc5ff;
       background: #ecf5ff;
       border-color: #d9ecff;
     }
@@ -98,19 +105,19 @@ export default {
       border-color: #dd6161;
     }
     &[disabled] {
-      color:#f9a7a7;
+      color: #f9a7a7;
       background: #fff2f0;
       border-color: #fde2e2;
     }
   }
   &.plain.success {
-    color: #52C41A;
-    background: #F2FBED;
-    border-color: #A8E18C;
+    color: #52c41a;
+    background: #f2fbed;
+    border-color: #a8e18c;
     &:hover {
       color: #fff;
-      background: #52C41A ;
-      border-color: #52C41A ;
+      background: #52c41a;
+      border-color: #52c41a;
     }
     &:active {
       color: #fff;
@@ -118,9 +125,9 @@ export default {
       border-color: #5daf34;
     }
     &[disabled] {
-    color: #a4da89;
-    background-color: #f0f9eb;
-    border-color: #e1f3d8;
+      color: #a4da89;
+      background-color: #f0f9eb;
+      border-color: #e1f3d8;
     }
   }
   &.default {
@@ -138,7 +145,7 @@ export default {
       border-color: #409eff;
     }
     &[disabled] {
-    color: #c0c4cc;
+      color: #c0c4cc;
       border-color: #ebeef5;
       background: #fff;
     }
@@ -181,14 +188,14 @@ export default {
       background: #fab6b6;
     }
   }
-  &.success{
+  &.success {
     color: #fff;
-      background: #52C41A ;
-      border-color: #52C41A ;
+    background: #52c41a;
+    border-color: #52c41a;
     &:hover {
       color: #fff;
-          background: #85ce61;
-    border-color: #85ce61;
+      background: #85ce61;
+      border-color: #85ce61;
     }
     &:active {
       color: #fff;
@@ -196,9 +203,9 @@ export default {
       border-color: #5daf34;
     }
     &[disabled] {
-          color: #fff;
-    background-color: #b3e19d;
-    border-color: #b3e19d;
+      color: #fff;
+      background-color: #b3e19d;
+      border-color: #b3e19d;
     }
   }
   &.large {

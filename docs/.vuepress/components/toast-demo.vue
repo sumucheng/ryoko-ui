@@ -92,7 +92,8 @@ export default {
     open3() {
       this.$toast({
         text: "恭喜！你所提交的信息已经审核通过，如有问题请联系客服。",
-        type: "success"
+        type: "success",
+        duration: 0
       });
     },
     open4() {
