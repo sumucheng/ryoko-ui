@@ -2,7 +2,7 @@ module.exports = {
     title: 'Ryoko UI',
     description: '',
     base: '/ryoko-ui/',
-    plugins: ['@vuepress/back-to-top', '@goy/svg-icons'],
+    plugins: ['@vuepress/back-to-top'],
     themeConfig: {
         smoothScroll: true,
         sidebarDepth: 0,

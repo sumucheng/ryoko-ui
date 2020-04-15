@@ -61,14 +61,14 @@
       border-color: #fde2e2;
 }
 .r-button.plain.success[data-v-ae748a] {
-    color: #52C41A;
-    background: #F2FBED;
-    border-color: #A8E18C;
+    color: #52c41a;
+    background: #f2fbed;
+    border-color: #a8e18c;
 }
 .r-button.plain.success[data-v-ae748a]:hover {
       color: #fff;
-      background: #52C41A;
-      border-color: #52C41A;
+      background: #52c41a;
+      border-color: #52c41a;
 }
 .r-button.plain.success[data-v-ae748a]:active {
       color: #fff;
@@ -140,8 +140,8 @@
 }
 .r-button.success[data-v-ae748a] {
     color: #fff;
-    background: #52C41A;
-    border-color: #52C41A;
+    background: #52c41a;
+    border-color: #52c41a;
 }
 .r-button.success[data-v-ae748a]:hover {
       color: #fff;
@@ -810,21 +810,33 @@
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+  margin: 0 8px;
 }
 
+@keyframes slide-down-data-v-1ed31a {
+0% {
+    opacity: 0;
+    transform: translateY(-100%) translateX(-50%);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0%) translateX(-50%);
+}
+}
 .toast[data-v-1ed31a] {
   position: fixed;
-  top: 10px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
+  animation: slide-down-data-v-1ed31a 500ms;
   background: #e5efff;
   border: 1px solid #85b3ff;
   border-radius: 4px;
   font-size: 14px;
   color: #5f5f5f;
   letter-spacing: 0;
-  padding: 8px 16px;
+  padding: 10px 8px;
   display: flex;
   align-items: center;
 }
@@ -832,16 +844,52 @@
     background: #f2fbed;
     border: 1px solid #a9e18e;
 }
+.toast.success .icon[data-v-1ed31a] {
+      fill: #52c41a;
+}
 .toast.warning[data-v-1ed31a] {
     background: #fff7e5;
     border: 1px solid #ffd87d;
+}
+.toast.warning .icon[data-v-1ed31a] {
+      fill: #ffb300;
 }
 .toast.error[data-v-1ed31a] {
     background: #fff2f0;
     border: 1px solid #faab9f;
 }
+.toast.error .icon[data-v-1ed31a] {
+      fill: #f5573e;
+}
+.toast.default .icon[data-v-1ed31a] {
+    fill: #136bff;
+}
 .toast .close[data-v-1ed31a] {
-    padding-left: 15px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toast .close .icon[data-v-1ed31a] {
+      fill: #888;
+      width: 0.65em;
+      height: 0.65em;
+}
+.toast .close .icon[data-v-1ed31a]:hover {
+        fill: #136bff;
+}
+.v-enter-active[data-v-1ed31a],
+.v-leave-active[data-v-1ed31a] {
+  transition: all 0.5s;
+}
+.v-enter-to[data-v-1ed31a],
+.v-leave[data-v-1ed31a] {
+  opacity: 1;
+  transform: translateY(0%) translateX(-50%);
+}
+.v-enter[data-v-1ed31a],
+.v-leave-to[data-v-1ed31a] {
+  opacity: 0;
+  transform: translateY(-100%) translateX(-50%);
 }
 

@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/sumucheng/ryoko-ui#readme",
   "dependencies": {
+    "@vuepress/core": "^1.4.1",
     "svg-mixer": "^2.3.13",
     "svg.js": "^2.7.1",
     "svgo-loader": "^2.2.1",

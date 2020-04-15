@@ -11,44 +11,10 @@
 </head>
 
 <body>
-    <div id="app">
-        <r-row>
-            <r-button @click="open1">默认</r-button>
-            <r-button @click="open2">错误</r-button>
-            <r-button @click="open3">成功</r-button>
-            <r-button @click="open4">警告</r-button>
-        </r-row>
-    </div>
+    <div id="app"> </div>
     <script src="src/app.js"></script>
-    <script src="//at.alicdn.com/t/font_1756597_rnranmrq8tl.js"></script>
 </body>
 <script>
-
-    function open1() {
-        this.$toast({
-            text: "这是一条普通的消息提示",
-            type: "default"
-        });
-    }
-    function open2() {
-        this.$toast({
-            text: "系统错误，请稍后重试。",
-            type: "error"
-        });
-    }
-    function open3() {
-        this.$toast({
-            text: "恭喜！你所提交的信息已经审核通过，如有问题请联系客服。",
-            type: "success",
-            duration: 0
-        });
-    }
-    function open4() {
-        this.$toast({
-            text: "警告！系统将于 15 : 00 - 17 : 00 进行升级，请及时保存你的资料！",
-            type: "warning"
-        });
-    }
 </script>
 
 </html>

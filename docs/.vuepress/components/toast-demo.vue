@@ -51,7 +51,7 @@
         <Code :code="code.time" />
       </div>
     </div>
-    <ApiTable name="Options" :apis="options" />
+    <ApiTable name="API" :apis="apis" />
   </DemoLayout>
 </template>
 
@@ -61,7 +61,6 @@ import ApiTable from "./demo-common/api-table";
 import DemoLayout from "./demo-common/demo-layout";
 import Code from "./demo-common/code";
 import Button from "../../../src/button";
-import Toast from "../../../src/toast";
 import plugin from "../../../src/plugin";
 import Row from "../../../src/row";
 import Vue from "vue";
@@ -73,7 +72,6 @@ export default {
     ApiTable: ApiTable,
     Code: Code,
     "r-button": Button,
-    "r-toast": Toast,
     "r-row": Row
   },
   methods: {
@@ -123,7 +121,7 @@ export default {
   },
   data() {
     return {
-      options: {
+      apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
           ["text", "消息文字", "string", "-", "-"],
