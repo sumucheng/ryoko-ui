@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs">
+  <div class="tabs" :class="type">
     <slot></slot>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: "default"
+      default: "line"
     },
     selected: {
       type: String
@@ -35,13 +35,21 @@ export default {
     if (this.$children.length === 0) console.warn("你没有在tabs中添加子组件");
     this.$children.forEach(vm => {
       if (vm.$options.name === "r-tabs-head") {
-        vm.$children.forEach(child => {
-          if (
-            child.$options.name === "r-tabs-tab" &&
-            child.name === this.selected
-          )
-            this.eventBus.$emit("update:selected", this.selected, child);
-        });
+        if (this.selected === undefined) {
+          this.eventBus.$emit(
+            "update:selected",
+            vm.$children[0].name,
+            vm.$children[0]
+          );
+        } else {
+          vm.$children.forEach(child => {
+            if (
+              child.$options.name === "r-tabs-tab" &&
+              child.name === this.selected
+            )
+              this.eventBus.$emit("update:selected", this.selected, child);
+          });
+        }
       }
     });
   }

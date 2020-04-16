@@ -15,7 +15,7 @@
       <p>Tabs 组件默认选中第一个标签页，你也可以通过 selected 属性来指定当前选中的标签页。</p>
       <div class="container">
         <div class="box">
-          <r-tabs :selected.sync="selectedTab">
+          <r-tabs>
             <r-tabs-head>
               <r-tabs-tab name="1">Tab-1</r-tabs-tab>
               <r-tabs-tab name="2" disabled>Tab-2</r-tabs-tab>
@@ -36,7 +36,7 @@
       <p>Tabs 组件默认选中第一个标签页，你也可以通过 selected 属性来指定当前选中的标签页。</p>
       <div class="container">
         <div class="box">
-          <r-tabs :selected.sync="selectedTab">
+          <r-tabs>
             <r-tabs-head>
               <r-tabs-tab name="1">Tab-1</r-tabs-tab>
               <r-tabs-tab name="2" disabled>Tab-2</r-tabs-tab>
@@ -81,7 +81,6 @@ export default {
   methods: {},
   data() {
     return {
-      selectedTab: "user",
       apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [["text", "消息文字", "string", "-", "-"]]
