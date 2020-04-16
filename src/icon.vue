@@ -5,13 +5,15 @@
 </template>
 
 <script>
-// import "./svg";
 export default {
   name: "Icon",
   props: {
     name: {
       type: String
     }
+  },
+  beforeMount() {
+    import("./svg.js");
   }
 };
 </script>
