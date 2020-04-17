@@ -28,7 +28,8 @@ export default {
   },
   provide() {
     return {
-      eventBus: this.eventBus
+      eventBus: this.eventBus,
+      type: this.type
     };
   },
   mounted() {
@@ -57,4 +58,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tabs.card {
+  background: #ffffff;
+  border: 1px solid #e9e9e9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
 </style>

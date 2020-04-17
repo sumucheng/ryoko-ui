@@ -11,4 +11,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tabs.card {
+  .tabs-body {
+    padding: 20px;
+  }
+}
 </style>
