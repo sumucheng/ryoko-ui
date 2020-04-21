@@ -8,10 +8,6 @@
 export default {
   name: "r-tabs-pane",
   props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
     name: {
       type: String
     }

@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .apis {
-  margin-bottom: 30px;
+  margin-top: 50px;
   table {
     width: 100%;
     display: table;

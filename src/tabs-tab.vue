@@ -44,7 +44,8 @@ export default {
   align-items: center;
   height: 50px;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 12px 0;
+
   color: #5f5f5f;
   &.active {
     color: #136bff;
@@ -53,6 +54,9 @@ export default {
   &.disabled {
     color: #ccc;
     cursor: not-allowed;
+    &:hover {
+      color: #ccc;
+    }
   }
   &:hover {
     color: #136bff;
@@ -60,9 +64,9 @@ export default {
 }
 .line {
   .tabs-tab {
-    &:first-child {
-      padding-left: 0;
-    }
+    padding: 12px 0;
+    margin: 0 32px 0 0;
+    text-align: left;
   }
 }
 .card {
@@ -70,6 +74,7 @@ export default {
     border: 1px solid transparent;
     margin-left: -1px;
     margin-top: -1px;
+    padding: 8px 16px;
     &.active {
       color: #136bff;
       background-color: #fff;

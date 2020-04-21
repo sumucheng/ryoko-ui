@@ -15,17 +15,29 @@ export default {
     },
     selected: {
       type: String
-    },
-    position: {
-      type: String,
-      default: "top"
     }
+    // position: {
+    //   type: String,
+    //   default: "top"
+    // }
   },
   data() {
     return {
       eventBus: new Vue()
     };
   },
+  // watch: {
+  //   position: function(pos) {
+  //     this.init();
+  //     this.eventBus.$emit("posChange", this.position, this.selected);
+  //     this.$children.forEach(vm => {
+  //       if (vm.$options.name === "r-tabs-head") {
+  //         vm.$el.classList.remove("top", "bottom", "left", "right");
+  //         vm.$el.classList.add(pos);
+  //       }
+  //     });
+  //   }
+  // },
   provide() {
     return {
       eventBus: this.eventBus,
@@ -33,26 +45,31 @@ export default {
     };
   },
   mounted() {
-    if (this.$children.length === 0) console.warn("你没有在tabs中添加子组件");
-    this.$children.forEach(vm => {
-      if (vm.$options.name === "r-tabs-head") {
-        if (this.selected === undefined) {
-          this.eventBus.$emit(
-            "update:selected",
-            vm.$children[0].name,
-            vm.$children[0]
-          );
-        } else {
-          vm.$children.forEach(child => {
-            if (
-              child.$options.name === "r-tabs-tab" &&
-              child.name === this.selected
-            )
-              this.eventBus.$emit("update:selected", this.selected, child);
-          });
+    this.init();
+  },
+  methods: {
+    init() {
+      if (this.$children.length === 0) console.warn("你没有在tabs中添加子组件");
+      this.$children.forEach(vm => {
+        if (vm.$options.name === "r-tabs-head") {
+          if (this.selected === undefined) {
+            this.eventBus.$emit(
+              "update:selected",
+              vm.$children[0].name,
+              vm.$children[0]
+            );
+          } else {
+            vm.$children.forEach(child => {
+              if (
+                child.$options.name === "r-tabs-tab" &&
+                child.name === this.selected
+              )
+                this.eventBus.$emit("update:selected", this.selected, child);
+            });
+          }
         }
-      }
-    });
+      });
+    }
   }
 };
 </script>
