@@ -1,6 +1,6 @@
 <template>
-  <span ref="triggerWrapper" @click="toggle" class="triggerWrapper">
-    <slot name="trigger"></slot>
+  <span ref="triggerWrapper" class="triggerWrapper">
+    <slot name="trigger" ref="trigger"></slot>
     <div class="plain" ref="plain" v-if="visible" :style="`width:${width}px`" :class="position">
       <div class="title">{{title}}</div>
       <div class="content">{{content}}</div>
@@ -17,6 +17,46 @@ export default {
       visible: false
     };
   },
+  mounted() {
+    switch (this.trigger) {
+      case "hover":
+        this.$refs.triggerWrapper.addEventListener("mouseenter", this.onOpen);
+        this.$refs.triggerWrapper.addEventListener("mouseleave", this.onClose);
+        break;
+      case "click":
+        this.$refs.triggerWrapper.addEventListener("click", this.toggle);
+        break;
+      case "focus":
+        this.$refs.triggerWrapper.addEventListener("mousedown", this.onOpen);
+        this.$refs.triggerWrapper.addEventListener("mouseup", this.onClose);
+        break;
+      default:
+        break;
+    }
+  },
+  destroyed() {
+    switch (this.trigger) {
+      case "hover":
+        this.$refs.triggerWrapper.removeEventListener(
+          "mouseenter",
+          this.onOpen
+        );
+        this.$refs.triggerWrapper.removeEventListener(
+          "mouseleave",
+          this.onClose
+        );
+        break;
+      case "click":
+        this.$refs.triggerWrapper.removeEventListener("click", this.toggle);
+        break;
+      case "focus":
+        this.$refs.triggerWrapper.removeEventListener("mousedown", this.onOpen);
+        this.$refs.triggerWrapper.removeEventListener("mouseup", this.onClose);
+        break;
+      default:
+        break;
+    }
+  },
   props: {
     title: {
       type: String
@@ -32,6 +72,13 @@ export default {
       default: "top",
       validator(value) {
         return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["hover", "click", "focus"].indexOf(value) >= 0;
       }
     }
   },
@@ -113,12 +160,13 @@ export default {
     .arrow {
       left: 50%;
       transform: translateX(-50%);
-      bottom: -12px;
+      bottom: -6px;
       border-top-color: #fff;
+      border-bottom: none;
       &::after {
         margin-left: -6px;
         border-top-width: 0;
-        border-top-color: #fff;
+        bottom: 0;
       }
     }
   }
@@ -128,12 +176,13 @@ export default {
     .arrow {
       left: 50%;
       transform: translateX(-50%);
-      top: -12px;
+      top: -6px;
       border-bottom-color: #fff;
+      border-top: none;
       &::after {
         margin-left: -6px;
         border-top-width: 0;
-        border-bottom-color: #fff;
+        top: 0;
       }
     }
   }
@@ -143,12 +192,13 @@ export default {
     .arrow {
       top: 50%;
       transform: translateY(-50%);
-      right: -12px;
+      right: -6px;
       border-left-color: #fff;
+      border-right: none;
       &::after {
-        margin-left: -6px;
-        border-left-width: 0;
-        border-left-color: #fff;
+        margin-top: -6px;
+        border-right-width: 0;
+        right: 0;
       }
     }
   }
@@ -158,12 +208,13 @@ export default {
     .arrow {
       top: 50%;
       transform: translateY(-50%);
-      left: -12px;
+      left: -6px;
       border-right-color: #fff;
+      border-left: none;
       &::after {
-        margin-left: -6px;
-        border-right-width: 0;
-        border-right-color: #fff;
+        margin-top: -6px;
+        border-left-width: 0;
+        left: 0;
       }
     }
   }
@@ -191,6 +242,7 @@ export default {
       border: 6px solid transparent;
       width: 0;
       height: 0;
+      position: absolute;
     }
   }
 }

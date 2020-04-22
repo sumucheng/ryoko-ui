@@ -13,13 +13,13 @@
       <p>Tabs 组件默认选中第一个标签页，你也可以通过 selected 属性来指定当前选中的标签页。</p>
       <div class="container">
         <div class="box">
-          <r-popover title="标题" content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。" :width="300">
+          <r-popover title="标题" trigger="hover" content="这是一段内容,这是一段内容,这是一段内容。" :width="300">
             <r-button slot="trigger">hover me</r-button>
           </r-popover>
-          <r-popover title="标题" content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。" :width="300">
+          <r-popover title="标题" trigger="click" content="这是一段内容,这是一段内容,这是一段内容。" :width="300">
             <r-button slot="trigger">click me</r-button>
           </r-popover>
-          <r-popover title="标题" content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。" :width="300">
+          <r-popover title="标题" trigger="focus" content="这是一段内容,这是一段内容,这是一段内容。" :width="300">
             <r-button slot="trigger">focus me</r-button>
           </r-popover>
         </div>
