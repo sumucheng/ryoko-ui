@@ -27,6 +27,36 @@
       </div>
     </div>
 
+    <div class="item">
+      <h3>位置</h3>
+      <p>可以通过 position 属性设置气泡卡片的方向</p>
+      <div class="container">
+        <div class="box position">
+          <div style="margin-left: 100px; white-space: nowrap">
+            <r-popover title="标题" content="这是一段内容。" position="top">
+              <r-button slot="trigger">top</r-button>
+            </r-popover>
+          </div>
+          <div style=" float: left;">
+            <r-popover title="标题" content="这是一段内容。" position="left">
+              <r-button slot="trigger">left</r-button>
+            </r-popover>
+          </div>
+          <div style=" margin-left: 200px;">
+            <r-popover title="标题" content="这是一段内容。" position="right">
+              <r-button slot="trigger">right</r-button>
+            </r-popover>
+          </div>
+          <div style="margin-left: 100px; clear: both; white-space: nowrap;">
+            <r-popover title="标题" content="这是一段内容。" position="bottom">
+              <r-button slot="trigger">bottom</r-button>
+            </r-popover>
+          </div>
+        </div>
+        <Code :code="code.basic" />
+      </div>
+    </div>
+
     <ApiTable name="Popover API" :apis="popoverApis" />
   </DemoLayout>
 </template>
@@ -68,8 +98,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.radio {
-  display: flex;
-  margin-bottom: 20px;
+.box.position {
+  .r-button {
+    width: 90px;
+  }
 }
 </style>

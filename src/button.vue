@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: "r-button",
   props: {
     disabled: {
       type: Boolean,
@@ -45,9 +46,8 @@ export default {
 <style lang="scss" scoped>
 @import "./style/normal.scss";
 .r-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
   padding: 0 1em;
   border-radius: $border-radius-s;
   line-height: 1;

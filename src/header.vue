@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "r-header",
   props: {
     height: {
       type: String,

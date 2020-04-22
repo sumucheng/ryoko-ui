@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "r-footer",
   props: {
     height: {
       type: String,

@@ -9,6 +9,7 @@ import Sider from './sider'
 import Content from './content'
 import Toast from './toast'
 import plugin from './plugin'
+import Popover from './popover'
 Vue.use(plugin)
 
 Vue.component('r-button', Button)
@@ -21,6 +22,7 @@ Vue.component('r-footer', Footer)
 Vue.component('r-sider', Sider)
 Vue.component('r-content', Content)
 Vue.component('r-toast', Toast)
+Vue.component('r-popover', Popover)
 
 new Vue({
     el: '#app'

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "Icon",
+  name: "r-icon",
   props: {
     name: {
       type: String

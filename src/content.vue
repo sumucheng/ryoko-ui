@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  props: {}
+  name: "r-content"
 };
 </script>
 

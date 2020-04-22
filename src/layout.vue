@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  props: {},
+  name: "r-layout",
   data() {
     return {
       classList: []

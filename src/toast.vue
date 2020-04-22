@@ -14,7 +14,7 @@
 import Icon from "./icon";
 
 export default {
-  name: "toast",
+  name: "r-toast",
   data() {
     return {
       visible: true
