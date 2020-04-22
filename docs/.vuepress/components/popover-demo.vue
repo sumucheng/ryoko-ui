@@ -53,7 +53,7 @@
             </r-popover>
           </div>
         </div>
-        <Code :code="code.basic" />
+        <Code :code="code.pos" />
       </div>
     </div>
 
@@ -84,13 +84,57 @@ export default {
       popoverApis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
-          ["selected", "选中面板的 name", "string", "-", "第一个面板的 name"],
-          ["type", "样式类型", "string", "line | card", "line"]
+          ["trigger", "触发方式", "string", "click | focus | hover", "click"],
+          ["title", "标题", "string", "-", "-"],
+          ["content", "内容", "string", "-", "-"],
+          ["width", "宽度", "string | number", "-", "最小宽度 150px"],
+          [
+            "position",
+            "卡片位置",
+            "string",
+            "top | bottom | left | right",
+            "top"
+          ]
         ]
       },
 
       code: {
-        basic: ``
+        basic: `
+        <r-popover title="标题" trigger="hover" content="这是一段内容,这是一段内容,这是一段内容。" :width="300">
+          <r-button slot="trigger">hover me</r-button>
+        </r-popover>
+
+        <r-popover title="标题" trigger="click" content="这是一段内容,这是一段内容,这是一段内容。" :width="300">
+          <r-button slot="trigger">click me</r-button>
+        </r-popover>
+
+        <r-popover title="标题" trigger="focus" content="这是一段内容,这是一段内容,这是一段内容。" :width="300">
+          <r-button slot="trigger">focus me</r-button>
+        </r-popover>`,
+        pos: `
+        <div style="margin-left: 100px; white-space: nowrap">
+          <r-popover title="标题" content="这是一段内容。" position="top">
+            <r-button slot="trigger">top</r-button>
+          </r-popover>
+        </div>
+
+        <div style=" float: left;">
+          <r-popover title="标题" content="这是一段内容。" position="left">
+            <r-button slot="trigger">left</r-button>
+          </r-popover>
+        </div>
+
+        <div style=" margin-left: 200px;">
+          <r-popover title="标题" content="这是一段内容。" position="right">
+            <r-button slot="trigger">right</r-button>
+          </r-popover>
+        </div>
+
+        <div style="margin-left: 100px; clear: both; white-space: nowrap;">
+          <r-popover title="标题" content="这是一段内容。" position="bottom">
+            <r-button slot="trigger">bottom</r-button>
+          </r-popover>
+        </div>`
       }
     };
   }
