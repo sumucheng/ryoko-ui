@@ -8,6 +8,7 @@
 import Vue from "vue";
 export default {
   name: "r-collapse",
+
   data() {
     return {
       eventBus: new Vue(),
@@ -16,8 +17,7 @@ export default {
   },
   provide() {
     return {
-      eventBus: this.eventBus,
-      accordion: this.accordion
+      eventBus: this.eventBus
     };
   },
   props: {

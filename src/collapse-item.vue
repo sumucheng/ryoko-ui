@@ -1,6 +1,9 @@
 <template>
   <div class="r-collapse-item">
-    <div class="title" @click="toggle" :class="{active:active}">{{title}}</div>
+    <div class="title" @click="toggle" :class="{active:active}">
+      {{title}}
+      <Icon name="right" />
+    </div>
     <div class="content" v-if="active">
       <slot></slot>
     </div>
@@ -8,8 +11,12 @@
 </template>
 
 <script>
+import Icon from "./icon";
 export default {
   name: "r-collapse",
+  components: {
+    Icon
+  },
   data() {
     return {
       active: false
@@ -25,7 +32,7 @@ export default {
       required: true
     }
   },
-  inject: ["eventBus", "accordion"],
+  inject: ["eventBus"],
   mounted() {
     this.eventBus.$on("update:selected", names => {
       this.active = names.indexOf(this.name) >= 0;
@@ -62,8 +69,21 @@ export default {
     border-bottom: 1px solid #f3f3f8;
     transition: border-bottom-color 0.3s;
     outline: none;
+    position: relative;
     &.active {
       border-bottom-color: transparent;
+      .icon {
+        transform: rotate(90deg);
+      }
+    }
+    .icon {
+      width: 0.8em;
+      height: 0.8em;
+      color: #ccc;
+      line-height: 60px;
+      transition: transform 0.3s;
+      position: absolute;
+      right: 5px;
     }
   }
   .content {
