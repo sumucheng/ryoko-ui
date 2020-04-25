@@ -1,5 +1,5 @@
 <template>
-  <label class="r-radio" @click="toggle">
+  <label class="r-radio" @click="toggle" :class="{disabled:disabled}">
     <span class="outter" :class="{active:active}">
       <span class="inner"></span>
     </span>
@@ -24,6 +24,10 @@ export default {
     label: {
       type: String,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
@@ -33,6 +37,7 @@ export default {
   },
   methods: {
     toggle() {
+      if (this.disabled) return;
       if (this.active) {
         this.active = false;
         this.$emit("update:radio", "");
@@ -83,9 +88,12 @@ export default {
       }
     }
   }
-
   .text {
     padding-left: 5px;
+  }
+  &.disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
   }
 }
 </style>

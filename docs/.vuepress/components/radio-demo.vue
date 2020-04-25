@@ -3,11 +3,33 @@
     <ViewTip>在一组备选项中进行单选。</ViewTip>
     <div class="item">
       <h3>普通面板</h3>
-      <p>由于选项默认可见，不宜过多，若选项过多，建议使用 Select 选择器</p>
+      <p>由于选项默认可见，不宜过多，若选项过多，建议使用 Select 选择器。</p>
       <div class="container">
         <div class="box">
           <r-radio :radio.sync="radio" label="1">单选项</r-radio>
           <r-radio :radio.sync="radio" label="2">单选项</r-radio>
+        </div>
+        <Code :code="code.basic" />
+      </div>
+    </div>
+    <div class="item">
+      <h3>禁用状态</h3>
+      <p>单选框不可用的状态。</p>
+      <div class="container">
+        <div class="box">
+          <r-radio :radio.sync="radio" label="1">可选项</r-radio>
+          <r-radio :radio.sync="radio" label="2" disabled>不可选项</r-radio>
+        </div>
+        <Code :code="code.basic" />
+      </div>
+    </div>
+    <div class="item">
+      <h3>禁用状态</h3>
+      <p>单选框不可用的状态。</p>
+      <div class="container">
+        <div class="box">
+          <r-radio :radio.sync="radio" label="1">可选项</r-radio>
+          <r-radio :radio.sync="radio" label="2" disabled>不可选项</r-radio>
         </div>
         <Code :code="code.basic" />
       </div>
