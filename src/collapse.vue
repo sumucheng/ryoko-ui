@@ -8,7 +8,6 @@
 import Vue from "vue";
 export default {
   name: "r-collapse",
-
   data() {
     return {
       eventBus: new Vue(),
