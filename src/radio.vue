@@ -111,8 +111,8 @@ export default {
     }
     &.active {
       .inner {
-        border-color: #409eff;
-        background: #409eff;
+        border-color: #136bff;
+        background: #136bff;
         &::after {
           transform: translate(-50%, -50%) scale(1);
         }
