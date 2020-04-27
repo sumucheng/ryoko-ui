@@ -58,7 +58,8 @@
       </div>
     </div>
     <ApiTable name="Radio API" :apis="apis" />
-      <ApiTable name="Radio-group API" :apis="groupApis" />
+    <ApiTable name="Radio-group API" :apis="groupApis" />
+     <ApiTable name="Radio-button API" :apis="buttonApis" />
   </DemoLayout>
 </template>
 
@@ -70,6 +71,7 @@ import Code from "./demo-common/code";
 import Radio from "../../../src/radio";
 import RadioGroup from '../../../src/radio-group';
 import RadioButton from '../../../src/radio-button';
+
 export default {
   components: {
     ViewTip: ViewTip,
@@ -94,6 +96,14 @@ export default {
           ["radio", "当前选定的 Radio", "string", "-", "-"],
           ["label", "Radio 的 value", "string", "-", "-"],
           ["disabled", "是否禁用", "boolean", "-", "false"],
+        ]
+      },
+      buttonApis: {
+        header: ["参数", "说明", "类型", "可选值", "默认值"],
+        body: [
+          ["label", "Radio 的 value", "string", "-", "-"],
+          ["disabled", "是否禁用", "boolean", "-", "false"],
+          ["plain", "是否朴素样式", "boolean", "-", "false"],
         ]
       },
       groupApis: {
@@ -158,7 +168,7 @@ export default {
             <r-radio-button label="3" disabled>本周</r-radio-button>
             <r-radio-button label="4" >本月</r-radio-button>
           </r-radio-group>    
-          
+
           <r-radio-group :radio.sync="radio2" style="margin-top: 20px">
             <r-radio-button label="1" plain>汇总</r-radio-button>
             <r-radio-button label="2" plain>本日</r-radio-button>
