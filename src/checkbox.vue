@@ -1,6 +1,6 @@
 <template>
   <label class="r-checkbox" :class="{disabled:disabled}">
-    <span class="outter" :class="{active:checked}">
+    <span class="outter" :class="{active:isChecked}">
       <span class="inner"></span>
       <input
         v-model="model"
@@ -8,7 +8,6 @@
         :disabled="disabled"
         tabindex="-1"
         class="checkbox-origin"
-        @change="toggle"
       />
     </span>
     <span class="text">
@@ -32,18 +31,32 @@ export default {
       }
       return false;
     },
+    isChecked() {
+      if (!this.isGroup) return this.model;
+      else return this.checkboxGroup.checkArray.indexOf(this.label) > -1;
+    },
     model: {
       get() {
-        return this.isGroup ? this.checkboxGroup.checkArray : this.checked;
+        if (this.isGroup) {
+          this.checkboxGroup.checkArray.forEach(el => {
+            if (el === this.label) return true;
+          });
+          return false;
+        }
+        return this.checked;
       },
       set(val) {
-        if (this.isGroup)
+        if (this.isGroup) {
+          const index = this.checkboxGroup.checkArray.indexOf(this.label);
+          if (index >= 0) {
+            this.checkboxGroup.checkArray.splice(index, 1);
+          } else this.checkboxGroup.checkArray.push(this.label);
           this.checkboxGroup.$emit.call(
             this.checkboxGroup,
             "handleChange",
-            val
+            this.checkboxGroup.checkArray
           );
-        else this.$emit("update:checked", val);
+        } else this.$emit("update:checked", val);
       }
     }
   },
@@ -55,18 +68,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    }
-  },
-  methods: {
-    toggle() {
-      this.$nextTick(() => {
-        if (this.isGroup)
-          this.checkboxGroup.$emit.call(
-            this.checkboxGroup,
-            "handleChange",
-            this.model
-          );
-      });
+    },
+    label: {
+      type: String
     }
   }
 };

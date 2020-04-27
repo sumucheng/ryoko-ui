@@ -23,7 +23,20 @@
         <Code :code="code.basic" />
       </div>
     </div>
-    <ApiTable name="Radio API" :apis="apis" />
+    <div class="item">
+      <h3>多选框组</h3>
+      <p>适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。</p>
+      <div class="container">
+        <div class="box">
+          <r-checkbox-group :checkArray.sync="checkArray">
+            <r-checkbox label="1">选项1</r-checkbox>
+            <r-checkbox label="2">选项2</r-checkbox>
+          </r-checkbox-group>
+        </div>
+        <Code :code="code.basic" />
+      </div>
+    </div>
+    <ApiTable name="Checkbox API" :apis="apis" />
   </DemoLayout>
 </template>
 
@@ -33,9 +46,7 @@ import ApiTable from "./demo-common/api-table";
 import DemoLayout from "./demo-common/demo-layout";
 import Code from "./demo-common/code";
 import Checkbox from "../../../src/checkbox";
-import Radio from "../../../src/radio";
-import RadioGroup from "../../../src/radio-group";
-import RadioButton from "../../../src/radio-button";
+import CheckboxGroup from "../../../src/checkbox-group";
 
 export default {
   components: {
@@ -43,9 +54,7 @@ export default {
     DemoLayout: DemoLayout,
     ApiTable: ApiTable,
     Code: Code,
-    "r-radio": Radio,
-    "r-radio-group": RadioGroup,
-    "r-radio-button": RadioButton,
+    "r-checkbox-group": CheckboxGroup,
     "r-checkbox": Checkbox
   },
   methods: {},
@@ -55,6 +64,7 @@ export default {
       checked2: false,
       checked3: true,
       checked4: false,
+      checkArray: ["1"],
       apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
