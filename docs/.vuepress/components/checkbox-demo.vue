@@ -20,7 +20,7 @@
           <r-checkbox :checked.sync="checked3" disabled>不可选项</r-checkbox>
           <r-checkbox :checked.sync="checked4" disabled>不可选项</r-checkbox>
         </div>
-        <Code :code="code.basic" />
+        <Code :code="code.disabled" />
       </div>
     </div>
     <div class="item">
@@ -33,10 +33,11 @@
             <r-checkbox label="2">选项2</r-checkbox>
           </r-checkbox-group>
         </div>
-        <Code :code="code.basic" />
+        <Code :code="code.group" />
       </div>
     </div>
     <ApiTable name="Checkbox API" :apis="apis" />
+    <ApiTable name="Checkbox-group API" :apis="groupApis" />
   </DemoLayout>
 </template>
 
@@ -68,35 +69,70 @@ export default {
       apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
-          ["radio", "当前选定的 Radio", "string", "-", "-"],
-          ["label", "Radio 的 value", "string", "-", "-"],
+          ["checked", "当前是否勾选", "boolean", "-", "false"],
+          ["label", "Checkbox 的 value", "string", "-", "-"],
           ["disabled", "是否禁用", "boolean", "-", "false"]
         ]
       },
-      buttonApis: {
-        header: ["参数", "说明", "类型", "可选值", "默认值"],
-        body: [
-          ["label", "Radio 的 value", "string", "-", "-"],
-          ["disabled", "是否禁用", "boolean", "-", "false"],
-          ["plain", "是否朴素样式", "boolean", "-", "false"]
-        ]
-      },
+      // buttonApis: {
+      //   header: ["参数", "说明", "类型", "可选值", "默认值"],
+      //   body: [
+      //     ["label", "Radio 的 value", "string", "-", "-"],
+      //     ["disabled", "是否禁用", "boolean", "-", "false"],
+      //     ["plain", "是否朴素样式", "boolean", "-", "false"]
+      //   ]
+      // },
       groupApis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
-        body: [["radio", "当前选定的 Radio", "string", "-", "-"]]
+        body: [["checkArray", "当前被勾选的 checkbox", "array", "-", "-"]]
       },
       code: {
         basic: `
         <template>
-          <r-radio :radio.sync="radio" label="1">单选项</r-radio>
-          <r-radio :radio.sync="radio" label="2">单选项</r-radio>
+          <r-checkbox :checked.sync="checked1">单选项</r-checkbox>
+          <r-checkbox :checked.sync="checked2">单选项</r-checkbox>
         </template>
 
         <script>
           export default {
             data () {
               return {
-                radio: '1'
+                checked1: true,
+                checked2: false
+              };
+            }
+          }
+        \<\/script>`,
+        disabled: `
+        <template>
+          <r-checkbox :checked.sync="checked1" disabled>不可选项</r-checkbox>
+          <r-checkbox :checked.sync="checked2" disabled>不可选项</r-checkbox>
+        </template>
+        
+        <script>
+          export default {
+            data () {
+              return {
+                checked1: true,
+                checked2: false
+              };
+            }
+          }
+        \<\/script>            
+        `,
+        group: `
+        <template>
+          <r-checkbox-group :checkArray.sync="checkArray">
+            <r-checkbox label="1">选项1</r-checkbox>
+            <r-checkbox label="2">选项2</r-checkbox>
+          </r-checkbox-group> 
+        </template>
+
+        <script>
+          export default {
+            data () {
+              return {
+                checkArray: ["1"]
               };
             }
           }
