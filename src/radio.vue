@@ -46,10 +46,10 @@ export default {
   },
   props: {
     radio: {
-      type: String
+      type: String | Boolean
     },
     label: {
-      type: String,
+      type: String | Boolean,
       required: true
     },
     disabled: {

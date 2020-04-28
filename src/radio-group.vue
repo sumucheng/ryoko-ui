@@ -10,7 +10,7 @@ export default {
   name: "r-radio-group",
   props: {
     radio: {
-      type: String
+      type: String | Boolean
     }
   },
   mounted() {

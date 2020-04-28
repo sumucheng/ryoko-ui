@@ -29,6 +29,7 @@ module.exports = {
                         'components/collapse',
                         'components/radio',
                         'components/checkbox',
+                        'components/timeline',
                     ]
                 },
             ]
