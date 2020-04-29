@@ -1,7 +1,7 @@
 <template>
   <li class="r-timeline-item">
     <div class="line"></div>
-    <div class="dot"></div>
+    <div class="dot" :class="type"></div>
     <div class="wrapper">
       <slot></slot>
       <div class="time">{{timestamp}}</div>
@@ -16,9 +16,14 @@ export default {
   props: {
     timestamp: {
       type: String
+    },
+    type: {
+      type: String
+    },
+    color: {
+      type: String
     }
-  },
-  methods: {}
+  }
 };
 </script>
 
@@ -46,6 +51,18 @@ export default {
     height: 12px;
     position: absolute;
     left: -1px;
+    &.success {
+      background: #52c41a;
+    }
+    &.primary {
+      background: #136bff;
+    }
+    &.warning {
+      background: #fe8f12;
+    }
+    &.danger {
+      background: #f5573e;
+    }
   }
   .wrapper {
     position: relative;
