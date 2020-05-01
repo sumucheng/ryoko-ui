@@ -7,10 +7,11 @@ export default {
       default: false
     }
   },
-  render() {
-    let slot = this.$slots.default || [];
-    if (this.reverse) slot = slot.reverse();
-    return <ul class="r-timeline">{slot}</ul>;
+  render(createElement) {
+    let slots = this.$slots.default || [];
+    if (this.reverse) slots = slots.reverse();
+    return createElement("ul", { class: "r-timeline" }, slots);
+    // return (<ul class="r-timeline"> { slots} </ul>);
   }
 };
 </script>

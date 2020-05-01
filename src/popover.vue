@@ -34,7 +34,8 @@ export default {
         break;
     }
   },
-  destroyed() {
+
+  beforeDestroy() {
     switch (this.trigger) {
       case "hover":
         this.$refs.triggerWrapper.removeEventListener(
@@ -113,6 +114,7 @@ export default {
     },
     onClickDoc(e) {
       if (
+        this.$refs.triggerWrapper &&
         !this.$refs.triggerWrapper.contains(e.target) &&
         !this.$refs.plain.contains(e.target)
       )

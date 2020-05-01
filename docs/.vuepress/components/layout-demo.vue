@@ -127,26 +127,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.box > .layout {
+.box > .r-layout {
   margin-bottom: 30px;
   &:last-child {
     margin-bottom: 0;
   }
 }
-.header,
-.footer {
+.r-header,
+.r-footer {
   background-color: #b3c0d1;
   color: #333;
   text-align: center;
   line-height: 60px;
 }
-.sider {
+.r-sider {
   background-color: #d3dce6;
   color: #333;
   text-align: center;
   line-height: 150px;
 }
-.content {
+.r-content {
   background-color: #e9eef3;
   color: #333;
   text-align: center;

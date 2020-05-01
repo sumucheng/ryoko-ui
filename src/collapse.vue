@@ -42,7 +42,7 @@ export default {
 
     this.eventBus.$on("update:removeSelected", name => {
       let index = this.selectedArray.indexOf(name);
-      this.selectedArray.splice(index, 1);
+      this.selectedArray && this.selectedArray.splice(index, 1);
       this.eventBus.$emit("update:selected", this.selectedArray);
       this.$emit("update:selected", this.selectedArray);
     });

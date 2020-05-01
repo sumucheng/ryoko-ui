@@ -39,7 +39,8 @@
         <Code :code="code.type" />
       </div>
     </div>
-    <ApiTable name="API" :apis="apis" />
+    <ApiTable name="Timeline API" :apis="apis" />
+    <ApiTable name="Timeline-item API" :apis="itemApis" />
   </DemoLayout>
 </template>
 
@@ -111,9 +112,21 @@ export default {
       apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
-          ["checked", "当前是否勾选", "boolean", "-", "false"],
-          ["label", "Checkbox 的 value", "string", "-", "-"],
-          ["disabled", "是否禁用", "boolean", "-", "false"]
+          ["reverse", "指定节点排序方向，默认为正序", "boolean", "-", "false"]
+        ]
+      },
+      itemApis: {
+        header: ["参数", "说明", "类型", "可选值", "默认值"],
+        body: [
+          ["timestamp", "时间戳", "string", "-", "-"],
+          [
+            "type",
+            "节点类型",
+            "string",
+            "primary | success | warning | danger",
+            "-"
+          ],
+          ["color", "节点颜色", "string", "hex ", "-"]
         ]
       },
       code: {
@@ -161,7 +174,7 @@ export default {
         <template>
           <r-timeline>
             <r-timeline-item
-              v-for="(item,index) in events2"
+              v-for="(item,index) in events"
               :key="index"
               :timestamp="item.timestamp"
               :color="item.color"
@@ -174,8 +187,7 @@ export default {
         <script>
           export default {
             data () {
-              return {
-                reverse: true,
+              return {       
                 events: [
                   {
                     content: "任务成功",

@@ -1,5 +1,5 @@
 <template>
-  <div class="layout" :class="classList">
+  <div class="r-layout" :class="classList">
     <slot></slot>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout {
+.r-layout {
   display: flex;
   flex-direction: column;
   flex-grow: 1;

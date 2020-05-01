@@ -1,5 +1,5 @@
 <template>
-  <div class="sider" :style="`width:${width}`">
+  <div class="r-sider" :style="`width:${width}`">
     <slot></slot>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sider {
+.r-sider {
   width: 300px;
 }
 </style>

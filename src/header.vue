@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :style="`height:${height}`">
+  <div class="r-header" :style="`height:${height}`">
     <slot></slot>
   </div>
 </template>
@@ -15,6 +15,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

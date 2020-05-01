@@ -1,5 +1,5 @@
 <template>
-  <div class="footer" :style="`height:${height}`">
+  <div class="r-footer" :style="`height:${height}`">
     <slot></slot>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
+.r-footer {
   height: 60px;
 }
 </style>
