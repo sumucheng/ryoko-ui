@@ -4,6 +4,8 @@ module.exports = {
     base: '/ryoko-ui/',
     plugins: ['@vuepress/back-to-top'],
     themeConfig: {
+        lastUpdated: 'Last Updated',
+        search: false,
         smoothScroll: true,
         sidebarDepth: 0,
         nav: [
@@ -30,6 +32,7 @@ module.exports = {
                         'components/radio',
                         'components/checkbox',
                         'components/timeline',
+                        'components/dialog',
                     ]
                 },
             ]
