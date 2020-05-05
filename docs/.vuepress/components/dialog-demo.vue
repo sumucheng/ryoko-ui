@@ -27,6 +27,7 @@
     </div>
 
     <ApiTable name="API" :apis="apis" />
+    <ApiTable name="Slot" :apis="slot" />
   </DemoLayout>
 </template>
 
@@ -53,12 +54,54 @@ export default {
       apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
-          ["selected", "当前激活的面板", "string | array", "-", "-"],
-          ["accordion", "是否手风琴模式", "boolean", "-", "false"]
+          ["visible", "是否显示 Dialog", "boolean", "-", "false"],
+          [
+            "title",
+            "Dialog 的标题，也可通过具名 slot 传入",
+            "string",
+            "-",
+            "false"
+          ],
+          ["showClose", "是否显示关闭按钮", "boolean", "-", "true"],
+          [
+            "closeOnClickMask",
+            "是否可以通过点击遮罩层关闭 Dialog",
+            "boolean",
+            "-",
+            "true"
+          ]
+        ]
+      },
+      slot: {
+        header: ["name", "说明"],
+        body: [
+          ["-", "Dialog 的内容"],
+          ["title", "Dialog 标题区的内容"],
+          ["footer", "Dialog 按钮操作区的内容"]
         ]
       },
       code: {
-        basic: ``
+        basic: `
+        <r-button @click="dialogVisible = true">点击打开 Dialog</r-button>
+
+        <r-dialog title="确认删除" :visible.sync="dialogVisible">
+          <span>您确定要删除该标签吗？删除后现有的推荐列表页将清空。</span>
+          <span slot="footer" class="dialog-footer">
+            <r-button @click="dialogVisible = false" style="marginRight:10px">取 消</r-button>
+            <r-button type="danger" plain @click="dialogVisible = false">确 定</r-button>
+          </span>
+        </r-dialog>  
+        
+        <script>
+        export default {
+          data() {
+            return {
+              dialogVisible: false
+            };
+          }
+        };
+        \<\/script>
+        `
       }
     };
   }

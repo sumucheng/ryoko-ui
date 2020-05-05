@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" v-if="visible">
+  <div class="wrapper" v-if="visible" @click="handleClickMask">
     <div class="r-dialog">
       <div class="title">
         <div v-if="title">{{title}}</div>
@@ -36,6 +36,15 @@ export default {
     showClose: {
       type: Boolean,
       default: true
+    },
+    closeOnClickMask: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    handleClickMask() {
+      if (this.closeOnClickMask) this.$emit("update:visible", false);
     }
   }
 };
