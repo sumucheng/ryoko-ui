@@ -33,6 +33,7 @@ module.exports = {
                         'components/checkbox',
                         'components/timeline',
                         'components/dialog',
+                        'components/tag',
                     ]
                 },
             ]
