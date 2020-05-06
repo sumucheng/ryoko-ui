@@ -13,16 +13,38 @@
       <p>标记类标签可标记信息状态，也可对信息进行分类。</p>
       <div class="container">
         <div class="box">
-          <r-tag>标签一</r-tag>
-          <r-tag type="success">标签二</r-tag>
-          <r-tag type="warning">标签三</r-tag>
-          <r-tag type="danger">标签四</r-tag>
+          <r-row>
+            <r-tag>标签一</r-tag>
+            <r-tag type="success">标签二</r-tag>
+            <r-tag type="warning">标签三</r-tag>
+            <r-tag type="danger">标签四</r-tag>
+          </r-row>
+          <r-row>
+            <r-tag effect="cube">标签一</r-tag>
+            <r-tag effect="cube" type="success">标签二</r-tag>
+            <r-tag effect="cube" type="warning">标签三</r-tag>
+            <r-tag effect="cube" type="danger">标签四</r-tag>
+          </r-row>
         </div>
         <Code :code="code.basic" />
       </div>
     </div>
 
+    <div class="item">
+      <h3>动态编辑标签</h3>
+      <p>动态编辑标签可以通过点击标签关闭按钮后触发的 close 事件来实现。</p>
+      <div class="container">
+        <div class="box">
+          <r-row>
+            <r-tag :key="tag" v-for="tag in tags" closable @close="handleClose(tag)">{{tag}}</r-tag>
+          </r-row>
+        </div>
+        <Code :code="code.closable" />
+      </div>
+    </div>
+
     <ApiTable name="API" :apis="apis" />
+    <ApiTable name="Event" :apis="event" />
   </DemoLayout>
 </template>
 
@@ -32,6 +54,7 @@ import ApiTable from "./demo-common/api-table";
 import DemoLayout from "./demo-common/demo-layout";
 import Code from "./demo-common/code";
 import Tag from "../../../src/tag";
+import Row from "../../../src/row";
 
 export default {
   components: {
@@ -39,110 +62,59 @@ export default {
     DemoLayout: DemoLayout,
     ApiTable: ApiTable,
     Code: Code,
-    "r-tag": Tag
+    "r-tag": Tag,
+    "r-row": Row
   },
-  methods: {},
+  methods: {
+    handleClose(tag) {
+      this.tags.splice(this.tags.indexOf(tag), 1);
+    }
+  },
   data() {
     return {
-      radio: "1",
-      radio2: "1",
-      radio3: "1",
-      radio4: "1",
-      radio5: "1",
+      tags: ["标签一", "标签二", "标签三"],
       apis: {
         header: ["参数", "说明", "类型", "可选值", "默认值"],
         body: [
-          ["radio", "当前选定的 Radio", "string", "-", "-"],
-          ["label", "Radio 的 value", "string", "-", "-"],
-          ["disabled", "是否禁用", "boolean", "-", "false"]
+          ["type", "类型", "string", "success | warning | danger", "-"],
+          ["closable", "是否可关闭", "boolean", "-", "false"],
+          ["effect", "主题", "string", "light | cube", "light"]
         ]
       },
-      buttonApis: {
-        header: ["参数", "说明", "类型", "可选值", "默认值"],
-        body: [
-          ["label", "Radio 的 value", "string", "-", "-"],
-          ["disabled", "是否禁用", "boolean", "-", "false"],
-          ["plain", "是否朴素样式", "boolean", "-", "false"]
-        ]
-      },
-      groupApis: {
-        header: ["参数", "说明", "类型", "可选值", "默认值"],
-        body: [["radio", "当前选定的 Radio", "string", "-", "-"]]
+      event: {
+        header: ["事件名称", "说明", "	回调参数"],
+        body: [["close", "关闭 Tag 时触发的事件", "-"]]
       },
       code: {
         basic: `
-        <template>
-          <r-radio :radio.sync="radio" label="1">单选项</r-radio>
-          <r-radio :radio.sync="radio" label="2">单选项</r-radio>
-        </template>
-
+        <r-row>
+          <r-tag>标签一</r-tag>
+          <r-tag type="success">标签二</r-tag>
+          <r-tag type="warning">标签三</r-tag>
+          <r-tag type="danger">标签四</r-tag>
+        </r-row>
+        <r-row>
+          <r-tag effect="cube">标签一</r-tag>
+          <r-tag effect="cube" type="success">标签二</r-tag>
+          <r-tag effect="cube" type="warning">标签三</r-tag>
+          <r-tag effect="cube" type="danger">标签四</r-tag>
+        </r-row>`,
+        closable: `
+        <r-tag :key="tag" v-for="tag in tags" closable @close="handleClose(tag)">{{tag}}</r-tag>
+        
         <script>
-          export default {
-            data () {
-              return {
-                radio: '1'
-              };
-            }
+        export default {
+          data() {
+            return {
+              tags: ['标签一', '标签二', '标签三']
+            };
+          },
+          methods: {
+            handleClose(tag) {
+              this.tags.splice(this.tags.indexOf(tag), 1);
+            }   
           }
-        \<\/script>`,
-        disabled: `
-        <template>
-          <r-radio :radio.sync="radio2" label="1">可选项</r-radio>
-          <r-radio :radio.sync="radio2" label="2" disabled>不可选项</r-radio>
-        </template>
-
-        <script>
-          export default {
-            data () {
-              return {
-                radio: '1'
-              };
-            }
-          }
-        \<\/script>`,
-        group: `
-        <template>
-          <r-radio-group :radio.sync="radio3">
-            <r-radio label="1">单选项</r-radio>
-            <r-radio label="2">单选项</r-radio>
-          </r-radio-group>    
-        </template>
-
-        <script>
-          export default {
-            data () {
-              return {
-                radio: '1'
-              };
-            }
-          }
-        \<\/script>`,
-        button: `
-        <template>
-          <r-radio-group :radio.sync="radio1">
-            <r-radio-button label="1">汇总</r-radio-button>
-            <r-radio-button label="2">本日</r-radio-button>
-            <r-radio-button label="3" disabled>本周</r-radio-button>
-            <r-radio-button label="4" >本月</r-radio-button>
-          </r-radio-group>    
-
-          <r-radio-group :radio.sync="radio2" style="margin-top: 20px">
-            <r-radio-button label="1" plain>汇总</r-radio-button>
-            <r-radio-button label="2" plain>本日</r-radio-button>
-            <r-radio-button label="3" plain disabled>本周</r-radio-button>
-            <r-radio-button label="4" plain >本月</r-radio-button>
-          </r-radio-group>  
-        </template>
-
-        <script>
-          export default {
-            data () {
-              return {
-                radio1: '1',
-                radio2: '1',
-              };
-            }
-          }
+        }
         \<\/script>`
       }
     };
